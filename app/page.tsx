@@ -308,7 +308,7 @@ export default function Home() {
           </div>
           <Reveal delay={100}>
             <div className="relative mt-14 aspect-[16/9] w-full overflow-hidden rounded-[1.8rem] sm:aspect-[21/9]">
-              <Image src="/images/company/shopfloor.jpg" alt="ASVA shop floor and production lines" fill sizes="(min-width:640px) 90vw, 100vw" className="object-cover" />
+              <Image src="/images/company/factory-floor.jpg" alt="Manufacturing shop floor with production machinery" fill sizes="(min-width:640px) 90vw, 100vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-r from-forest-950/80 via-forest-950/20 to-transparent" />
               <ul className="absolute bottom-5 left-5 hidden max-w-sm space-y-1.5 text-[0.9rem] sm:block">
                 {facility.capabilities.map((c) => (
@@ -318,6 +318,14 @@ export default function Home() {
                 ))}
               </ul>
             </div>
+            {/* On phones the list sits below the photo instead of over it. */}
+            <ul className="mt-6 grid gap-2.5 sm:hidden">
+              {facility.capabilities.map((c) => (
+                <li key={c} className="flex items-center gap-2.5 text-[0.95rem] text-forest-950/80">
+                  <Icon name="check" className="h-[18px] w-[18px] shrink-0 text-saffron-600" /> {c}
+                </li>
+              ))}
+            </ul>
           </Reveal>
           </div>
         </div>
@@ -372,7 +380,7 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
             {upcomingProducts.map((u, i) => (
               <Reveal key={u.name} delay={i * 60}>
                 <div className="group flex items-center gap-3.5 rounded-3xl bg-mint p-3.5 pr-5">

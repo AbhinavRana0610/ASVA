@@ -41,22 +41,22 @@ export default function CataloguePage() {
             { title: "Product Catalogue", meta: "40 pages · PDF · 24 MB", href: "/catalogue/ASVA-Catalogue.pdf", img: "/images/products/curve-4.jpg" },
             { title: "Price List & Specifications", meta: "28 models · PDF · 1 MB", href: "/catalogue/ASVA-Price-List.pdf", img: "/images/products/bldc-9.jpg" },
           ].map((d, i) => (
-            <Reveal key={d.title} delay={i * 80}>
+            <Reveal key={d.title} delay={i * 80} className="min-w-0">
               <a
                 href={d.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-6 overflow-hidden rounded-3xl bg-white p-4 pr-8 shadow-xl shadow-forest/10 ring-1 ring-forest/10 transition hover:-translate-y-1"
+                className="group flex items-center gap-4 overflow-hidden rounded-3xl bg-white p-3 pr-4 shadow-xl sm:gap-6 sm:p-4 sm:pr-8 shadow-forest/10 ring-1 ring-forest/10 transition hover:-translate-y-1"
               >
-                <div className="relative h-28 w-36 shrink-0 overflow-hidden rounded-2xl bg-mint">
+                <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-2xl bg-mint min-[380px]:h-20 min-[380px]:w-24 sm:h-28 sm:w-36">
                   <Image src={d.img} alt="" fill sizes="144px" className="object-contain p-2 mix-blend-multiply" />
                   <span className="absolute bottom-2 left-2 rounded bg-forest px-1.5 py-0.5 text-[9px] font-bold text-white">PDF</span>
                 </div>
-                <div className="flex-1">
-                  <h2 className="font-display text-2xl text-forest-950">{d.title}</h2>
+                <div className="min-w-0 flex-1">
+                  <h2 className="font-display text-lg leading-tight break-words text-forest-950 min-[380px]:text-xl sm:text-2xl">{d.title}</h2>
                   <p className="mt-1 text-sm text-forest-950/55">{d.meta}</p>
                 </div>
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-saffron text-forest-950 transition group-hover:scale-110">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-saffron text-forest-950 transition group-hover:scale-110 sm:h-12 sm:w-12">
                   <Icon name="download" className="h-5 w-5" />
                 </span>
               </a>

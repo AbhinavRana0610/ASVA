@@ -76,15 +76,18 @@ export default function HeroShowcase() {
       </div>
 
       {/* Slide dots */}
-      <div className="absolute -bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+      <div className="absolute -bottom-9 left-1/2 flex -translate-x-1/2">
         {slides.map((p, i) => (
           <button
             key={p.slug}
             type="button"
             onClick={() => setIndex(i)}
             aria-label={`Show ${p.name}`}
-            className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? "w-6 bg-saffron" : "w-1.5 bg-white/30 hover:bg-white/60"}`}
-          />
+            aria-current={i === index || undefined}
+            className="group/dot flex h-8 items-center px-1"
+          >
+            <span className={`block h-1.5 rounded-full transition-all duration-500 ${i === index ? "w-6 bg-saffron" : "w-1.5 bg-white/30 group-hover/dot:bg-white/60"}`} />
+          </button>
         ))}
       </div>
     </div>

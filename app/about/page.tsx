@@ -136,8 +136,8 @@ export default function AboutPage() {
               </div>
               <div className="grid grid-cols-2 gap-px self-center overflow-hidden rounded-2xl bg-white/10">
                 {ignique.stats.map((s) => (
-                  <div key={s.label} className="bg-forest-950 p-6">
-                    <p className="font-display text-3xl text-saffron">{s.value}</p>
+                  <div key={s.label} className="bg-forest-950 p-5 sm:p-6">
+                    <p className="font-display text-2xl leading-tight text-saffron sm:text-3xl">{s.value}</p>
                     <p className="mt-2 text-sm text-white/60">{s.label}</p>
                   </div>
                 ))}
@@ -165,13 +165,13 @@ export default function AboutPage() {
               </ul>
             </Reveal>
             <Reveal delay={100}>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
                 {facility.stats.map((s, i) => (
-                  <div key={s.label} className={`rounded-3xl p-5 sm:p-7 ${i === 0 ? "col-span-3 bg-forest text-white" : "bg-mint"}`}>
-                    <p className={`font-display text-5xl ${i === 0 ? "text-saffron" : "text-forest"}`}>
+                  <div key={s.label} className={`rounded-3xl p-4 sm:p-7 ${i === 0 ? "col-span-3 bg-forest text-white" : "bg-mint"}`}>
+                    <p className={`font-display text-4xl sm:text-5xl ${i === 0 ? "text-saffron" : "text-forest"}`}>
                       <Counter to={s.value} format={s.format} />
                     </p>
-                    <p className={`mt-2 text-sm ${i === 0 ? "text-white/70" : "text-forest-950/60"}`}>{s.label}</p>
+                    <p className={`mt-2 text-xs sm:text-sm ${i === 0 ? "text-white/70" : "text-forest-950/60"}`}>{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -180,7 +180,7 @@ export default function AboutPage() {
           <Reveal delay={150}>
             <div className="mt-12 grid gap-4 md:grid-cols-3">
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl md:col-span-2 md:aspect-auto">
-                <Image src="/images/company/shopfloor.jpg" alt="ASVA shop floor" fill sizes="(min-width:768px) 66vw, 100vw" className="object-cover" />
+                <Image src="/images/company/factory-floor.jpg" alt="Manufacturing shop floor with production machinery" fill sizes="(min-width:768px) 66vw, 100vw" className="object-cover" />
               </div>
               <div className="relative aspect-square overflow-hidden rounded-3xl">
                 <Image src="/images/company/factory.jpg" alt="ASVA factory building" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover" />

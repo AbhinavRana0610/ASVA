@@ -38,6 +38,8 @@ export default function Navbar() {
   // Menu is tied to the path it was opened on, so navigating closes it automatically.
   const [openOn, setOpenOn] = useState<string | null>(null);
   const open = openOn === pathname;
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const closeMenu = () => setOpenOn(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -183,25 +185,80 @@ export default function Navbar() {
           open ? "visible opacity-100" : "invisible opacity-0"
         }`}
       >
-        <ul className="flex h-full flex-col justify-center gap-2 px-8">
-          {nav.map((item, i) => (
-            <li
-              key={item.href}
-              style={{ transitionDelay: open ? `${100 + i * 60}ms` : "0ms" }}
-              className={`transition-all duration-500 ${open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
-            >
-              <Link
-                href={item.href}
-                className={`font-display text-4xl ${isActive(item.href) ? "text-saffron" : "text-white"}`}
-              >
-                {item.label}
-              </Link>
+        {/* Scrolls when the expanded product list is taller than the screen. */}
+        <div className="h-full overflow-y-auto overscroll-contain">
+          <ul className="flex min-h-full flex-col justify-center gap-2 px-6 pt-28 pb-12 sm:px-8">
+            {nav.map((item, i) => {
+              const hasMenu = item.href === "/products";
+              return (
+                <li
+                  key={item.href}
+                  style={{ transitionDelay: open ? `${100 + i * 60}ms` : "0ms" }}
+                  className={`transition-all duration-500 ${open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}
+                >
+                  <div className="flex items-center justify-between gap-4">
+                    <Link
+                      href={item.href}
+                      onClick={closeMenu}
+                      className={`font-display text-4xl ${isActive(item.href) ? "text-saffron" : "text-white"}`}
+                    >
+                      {item.label}
+                    </Link>
+                    {hasMenu && (
+                      <button
+                        type="button"
+                        onClick={() => setMobileProductsOpen((v) => !v)}
+                        aria-expanded={mobileProductsOpen}
+                        aria-controls="mobile-products"
+                        aria-label={mobileProductsOpen ? "Hide product categories" : "Show product categories"}
+                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 text-white"
+                      >
+                        <svg viewBox="0 0 12 12" className={`h-3 w-3 transition-transform duration-300 ${mobileProductsOpen ? "rotate-180" : ""}`} aria-hidden>
+                          <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                    )}
+                  </div>
+
+                  {hasMenu && mobileProductsOpen && (
+                    <div id="mobile-products" className="mt-4 mb-2 space-y-5 border-l border-white/15 pl-4">
+                      {productMenu.map((cat) => (
+                        <div key={cat.label}>
+                          <Link
+                            href={cat.href}
+                            onClick={closeMenu}
+                            className="inline-flex items-center gap-2 text-lg font-semibold text-white"
+                          >
+                            {cat.label}
+                            {cat.soon && (
+                              <span className="rounded-full bg-saffron px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-forest-950">Soon</span>
+                            )}
+                          </Link>
+                          <ul className="mt-2 flex flex-wrap gap-2">
+                            {cat.items.map((sub) => (
+                              <li key={sub.label}>
+                                <Link
+                                  href={sub.href}
+                                  onClick={closeMenu}
+                                  className="inline-flex min-h-9 items-center rounded-full bg-white/10 px-3.5 py-1.5 text-sm text-white/80 transition-colors active:bg-saffron active:text-forest-950"
+                                >
+                                  {sub.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+            <li className="mt-8 text-sm text-white/60">
+              <a href={`tel:${company.phones[0].replace(/\s/g, "")}`}>{company.phones[0]}</a>
             </li>
-          ))}
-          <li className="mt-8 text-sm text-white/60">
-            <a href={`tel:${company.phones[0].replace(/\s/g, "")}`}>{company.phones[0]}</a>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     </header>
   );
