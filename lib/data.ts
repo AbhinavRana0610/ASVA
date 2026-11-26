@@ -115,8 +115,8 @@ export const clientLogos = [
 ];
 
 export const newLaunches = [
-  { name: "Curve Slim", text: "Slimmest in India", img: "/images/upcoming/curve-slim.jpg" },
-  { name: "Slim-20 mm", text: "Slimmest in India", img: "/images/upcoming/slim-20mm.jpg" },
+  { name: "Curve Slim", text: "Slimmest in India. A curved slim profile in black powder-coated 0.5 mm GPSP, available in 60, 75 and 90 cm.", img: "/images/upcoming/curve-slim.jpg" },
+  { name: "Slim-20 mm", text: "Slimmest in India. A slim-profile chimney with LED lighting and motion-sensor or push-button control, available in 60, 75 and 90 cm.", img: "/images/upcoming/slim-20mm.jpg" },
   { name: "Hexagonal Ductless", text: "Innovative hexagonal body design featuring advanced ductless operation for efficient and hassle-free kitchen ventilation.", img: "/images/upcoming/hexagonal-ductless.png" },
   { name: "Curve Draw", text: "Compact curved draw design for a sleek and modern appearance.", img: "/images/upcoming/curve-draw.jpg" },
 ];
