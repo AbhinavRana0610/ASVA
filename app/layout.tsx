@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Fraunces, Manrope } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingContact from "@/components/FloatingContact";
+import EnquiryPopup from "@/components/EnquiryPopup";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -31,6 +33,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <FloatingContact />
+        <EnquiryPopup />
       </body>
     </html>
   );

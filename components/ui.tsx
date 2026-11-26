@@ -104,22 +104,37 @@ export function PageHero({
   title,
   text,
   children,
+  aside,
 }: {
   eyebrow: string;
   title: ReactNode;
   text?: ReactNode;
   children?: ReactNode;
+  /** Optional visual shown to the right of the text on large screens (below it on phones). */
+  aside?: ReactNode;
 }) {
+  const copy = (
+    <>
+      <Eyebrow light>{eyebrow}</Eyebrow>
+      <h1 className="mt-6 max-w-4xl font-display text-5xl leading-[1] tracking-tight text-balance sm:text-7xl">{title}</h1>
+      {text && <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{text}</p>}
+      {children}
+    </>
+  );
   return (
     <section className="relative overflow-hidden bg-forest-950 pt-40 pb-24 text-white sm:pt-48 sm:pb-32">
       <div className="grid-lines absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
       <div className="absolute -top-[160px] -right-[160px] h-[320px] w-[320px] rounded-full border-[52px] border-saffron [clip-path:inset(50%_50%_0_0)] sm:-top-[240px] sm:-right-[240px] sm:h-[480px] sm:w-[480px] sm:border-[76px]" />
       <div className="absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-forest/40 blur-3xl" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <Eyebrow light>{eyebrow}</Eyebrow>
-        <h1 className="mt-6 max-w-4xl font-display text-5xl leading-[1] tracking-tight text-balance sm:text-7xl">{title}</h1>
-        {text && <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{text}</p>}
-        {children}
+        {aside ? (
+          <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+            <div className="lg:col-span-7">{copy}</div>
+            <div className="lg:col-span-5">{aside}</div>
+          </div>
+        ) : (
+          copy
+        )}
       </div>
       <div className="sawtooth absolute inset-x-0 bottom-0 h-3.5" />
     </section>

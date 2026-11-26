@@ -34,8 +34,9 @@ export default function KitchenChimneysPage() {
           </>
         }
         text="Five series built on a 0.5 mm GPSP body with black powder coating. Each one has a different shape, motor and control, so you can match the chimney to your kitchen."
+        aside={<HeroVisual />}
       >
-        <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4">
+        <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
           {heroStats.map((h) => (
             <div key={h.l}>
               <dt className="font-display text-4xl text-white">{h.v}</dt>
@@ -196,6 +197,49 @@ export default function KitchenChimneysPage() {
         />
       </div>
     </>
+  );
+}
+
+// Right-hand hero visual: a hero chimney in a white disc, with two series shortcuts floating on it.
+function HeroVisual() {
+  const floating = [
+    { id: "bldc" as const, pos: "-left-2 bottom-[14%] sm:-left-6" },
+    { id: "pyramid" as const, pos: "-right-2 top-[10%] sm:-right-4" },
+  ];
+  return (
+    <div className="relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-[440px]">
+      <div className="absolute -inset-6 rounded-full border border-dashed border-white/10 animate-spin-slow" />
+      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white to-mint-200 shadow-2xl shadow-black/40" />
+      <div className="absolute -bottom-3 left-1/2 h-10 w-2/3 -translate-x-1/2 rounded-full bg-black/40 blur-2xl" />
+      <Image
+        src="/images/products/curve-4.jpg"
+        alt="ASVA Curve 4 kitchen chimney"
+        fill
+        priority
+        sizes="(min-width:1024px) 440px, 340px"
+        className="object-contain p-12 mix-blend-multiply sm:p-14"
+      />
+      {floating.map(({ id, pos }) => {
+        const s = chimneySeries.find((x) => x.id === id)!;
+        const st = seriesStats(id);
+        return (
+          <Link
+            key={id}
+            href={seriesHref(id)}
+            className={`group absolute ${pos} flex items-center gap-3 rounded-2xl bg-forest-950/90 p-2 pr-4 shadow-xl ring-1 ring-white/10 backdrop-blur transition hover:-translate-y-0.5 hover:ring-saffron/60`}
+          >
+            <span className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-white">
+              <Image src={s.cover} alt="" fill sizes="48px" className="object-contain p-1 mix-blend-multiply" />
+            </span>
+            <span>
+              <span className="block text-[10px] font-bold tracking-[0.2em] text-saffron">{s.code}</span>
+              <span className="block text-sm font-semibold text-white group-hover:text-saffron">{s.name}</span>
+              <span className="block text-[11px] text-white/55">{st.count} models</span>
+            </span>
+          </Link>
+        );
+      })}
+    </div>
   );
 }
 

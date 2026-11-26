@@ -31,6 +31,10 @@
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: none; }
 }
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-14px); }
@@ -66,7 +70,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
-  .animate-marquee, .animate-float, .animate-spin-slow { animation: none; }
+  .animate-marquee, .animate-float, .animate-spin-slow, dialog[open] { animation: none; }
 }
 
 /* Subtle grain + grid for premium surfaces */

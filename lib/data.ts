@@ -15,6 +15,8 @@ export const company = {
   ],
   phones: ["+91 98119 37730", "+91 83684 74702"],
   whatsapp: "919811937730",
+  // TODO: add ASVA's email. While empty, the floating email button opens the contact page instead.
+  email: "",
   website: "www.asvaindia.co.in",
   mapQuery: "HSIIDC Industrial Area Barhi Sonipat Haryana 131101",
 };

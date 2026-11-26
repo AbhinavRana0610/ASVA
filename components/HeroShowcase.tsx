@@ -18,7 +18,7 @@ const SLUGS = [
 ];
 
 const slides = SLUGS.map((s) => getProduct(s)).filter((p) => p !== undefined);
-const INTERVAL = 1500;
+const INTERVAL = 2000;
 
 export default function HeroShowcase() {
   const [index, setIndex] = useState(0);
