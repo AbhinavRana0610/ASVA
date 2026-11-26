@@ -83,7 +83,7 @@ export default function KitchenChimneysPage() {
               <Reveal key={s.id}>
                 <article
                   id={s.id}
-                  className="group grid scroll-mt-40 overflow-hidden rounded-[2rem] bg-white ring-1 ring-forest/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-forest/10 lg:grid-cols-2"
+                  className="group grid scroll-mt-40 overflow-hidden rounded-sm bg-white ring-1 ring-forest/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-forest/10 lg:grid-cols-2"
                 >
                   <Link
                     href={seriesHref(s.id)}
@@ -93,7 +93,6 @@ export default function KitchenChimneysPage() {
                     <span className="pointer-events-none absolute -bottom-6 left-6 select-none font-display text-[9rem] leading-none text-forest/[0.07] sm:text-[12rem]">
                       {s.code}
                     </span>
-                    <div className="absolute -top-20 -right-20 h-52 w-52 rounded-full border-[30px] border-saffron/90 [clip-path:inset(0_0_50%_50%)] transition-transform duration-700 group-hover:rotate-12" />
                     <Image
                       src={s.cover}
                       alt={s.name}

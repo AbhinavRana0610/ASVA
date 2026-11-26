@@ -63,16 +63,14 @@ export default function VacuumCleanersPage() {
             </div>
 
             <Reveal delay={150}>
-              <div className="relative aspect-[3/2] overflow-hidden rounded-[2rem] ring-1 ring-white/10">
+              <div className="relative aspect-[3/2] overflow-hidden rounded-sm ring-1 ring-white/10">
                 <Image src="/images/products/vacuum-hero.jpg" alt="ASVA wet and dry vacuum cleaner" fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent" />
-                <div className="absolute -top-16 -right-16 h-44 w-44 rounded-full border-[28px] border-saffron [clip-path:inset(0_0_50%_50%)]" />
                 <p className="absolute bottom-5 left-6 font-display text-2xl">12 L to 42 L</p>
               </div>
             </Reveal>
           </div>
         </div>
-        <div className="sawtooth absolute inset-x-0 bottom-0 h-3.5" />
       </section>
 
       {/* Shared features */}
@@ -101,14 +99,13 @@ export default function VacuumCleanersPage() {
           <Reveal key={v.slug}>
             <article
               id={v.slug}
-              className="group grid scroll-mt-28 overflow-hidden rounded-[2rem] bg-white ring-1 ring-forest/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-forest/10 lg:grid-cols-2"
+              className="group grid scroll-mt-28 overflow-hidden rounded-sm bg-white ring-1 ring-forest/10 transition-shadow duration-500 hover:shadow-2xl hover:shadow-forest/10 lg:grid-cols-2"
             >
               <Link
                 href={`/products/${v.slug}`}
                 className={`relative block aspect-[4/3] overflow-hidden bg-gradient-to-br from-mint via-white to-mint-200 ${i % 2 ? "lg:order-2" : ""}`}
                 aria-label={v.name}
               >
-                <div className="absolute -top-20 -right-20 h-52 w-52 rounded-full border-[30px] border-saffron/90 [clip-path:inset(0_0_50%_50%)] transition-transform duration-700 group-hover:rotate-12" />
                 <Image src={v.img} alt={v.name} fill sizes="(min-width:1024px) 50vw, 100vw" className="object-contain p-8 mix-blend-multiply transition-transform duration-700 group-hover:scale-105" />
               </Link>
 

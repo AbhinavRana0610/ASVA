@@ -85,7 +85,6 @@ async function SeriesContent({ params }: { params: Promise<{ series: string }> }
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white to-mint-200" />
               <div className="absolute -inset-4 rounded-full border border-white/10" />
               <div className="absolute -inset-10 rounded-full border border-dashed border-white/10 animate-spin-slow" />
-              <div className="absolute -top-6 -right-6 h-40 w-40 rounded-full border-[26px] border-saffron [clip-path:inset(0_0_50%_50%)]" />
               <Image src={s.cover} alt={s.name} fill priority sizes="(min-width:1024px) 520px, 90vw" className="object-contain p-14 mix-blend-multiply" />
               <span className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-forest-950 px-4 py-1.5 text-xs font-semibold text-white ring-1 ring-white/15">
                 {st.count} models in this series
@@ -93,7 +92,6 @@ async function SeriesContent({ params }: { params: Promise<{ series: string }> }
             </Reveal>
           </div>
         </div>
-        <div className="sawtooth absolute inset-x-0 bottom-0 h-3.5" />
       </section>
 
       {/* Series switcher */}

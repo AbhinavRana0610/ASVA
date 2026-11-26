@@ -71,7 +71,7 @@ export default function EnquiryPopup() {
       }}
       className="m-auto w-[calc(100%-2rem)] max-w-3xl overflow-visible bg-transparent p-0 backdrop:bg-forest-950/70 backdrop:backdrop-blur-sm open:animate-[popIn_0.35s_cubic-bezier(0.2,0.7,0.2,1)]"
     >
-      <div className="relative grid max-h-[calc(100svh-2rem)] overflow-y-auto rounded-[1.75rem] bg-white shadow-2xl md:grid-cols-5 md:overflow-hidden">
+      <div className="relative grid max-h-[calc(100svh-2rem)] overflow-y-auto rounded-sm bg-white shadow-2xl md:grid-cols-5 md:overflow-hidden">
         <button
           type="button"
           onClick={close}
@@ -86,7 +86,6 @@ export default function EnquiryPopup() {
         {/* Visual side (hidden on phones to keep the form short) */}
         <div className="relative hidden overflow-hidden bg-forest-950 p-8 text-white md:col-span-2 md:flex md:flex-col">
           <div className="grid-lines absolute inset-0 opacity-60" />
-          <div className="absolute -top-16 -right-16 h-44 w-44 rounded-full border-[28px] border-saffron [clip-path:inset(0_0_50%_50%)]" />
           <p className="relative text-[10px] font-bold uppercase tracking-[0.3em] text-saffron">ASVA India LLP</p>
           <p className="relative mt-3 font-display text-3xl leading-[1.1]">
             Find the right <span className="italic text-saffron">chimney</span> for you.

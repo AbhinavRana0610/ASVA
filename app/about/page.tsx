@@ -31,7 +31,7 @@ export default function AboutPage() {
               <Heading eyebrow="Who we are" title="A manufacturer of premium kitchen appliances." />
             </Reveal>
             <Reveal delay={100}>
-              <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-[2rem]">
+              <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-sm">
                 <Image src="/images/company/plant-exterior.jpg" alt="ASVA manufacturing unit" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
               </div>
             </Reveal>
@@ -117,7 +117,7 @@ export default function AboutPage() {
 
           {/* IGNIQUE */}
           <Reveal delay={100}>
-            <div className="mt-10 grid gap-10 overflow-hidden rounded-[2rem] bg-forest-950 p-8 text-white sm:p-12 lg:grid-cols-2">
+            <div className="mt-10 grid gap-10 overflow-hidden rounded-sm bg-forest-950 p-8 text-white sm:p-12 lg:grid-cols-2">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-saffron">Engineering & plant setup consultancy</p>
                 <h3 className="mt-4 font-display text-4xl">{ignique.title}</h3>
@@ -194,7 +194,7 @@ export default function AboutPage() {
       <section className="pb-24 sm:pb-32">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
-            <div className="overflow-hidden rounded-[2rem] bg-mint ring-1 ring-forest/10">
+            <div className="overflow-hidden rounded-sm bg-mint ring-1 ring-forest/10">
               <div className="relative aspect-[16/5] w-full bg-white">
                 <Image src="/images/company/fanair.jpg" alt="FanAir manufacturing unit" fill sizes="100vw" className="object-cover" />
               </div>
@@ -233,7 +233,7 @@ export default function AboutPage() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <div className="relative mx-auto aspect-[950/819] w-full max-w-lg overflow-hidden rounded-[2rem] bg-white p-4">
+              <div className="relative mx-auto aspect-[950/819] w-full max-w-lg overflow-hidden rounded-sm bg-white p-4">
                 <Image src="/images/clients/clients.jpg" alt={`Client brands: ${clients.join(", ")}`} fill sizes="(min-width:1024px) 40vw, 100vw" className="object-contain p-4" />
               </div>
             </Reveal>

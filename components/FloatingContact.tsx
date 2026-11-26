@@ -34,25 +34,25 @@ export default function FloatingContact() {
       label: "Chat on WhatsApp",
       href: `https://wa.me/${company.whatsapp}`,
       icon: WhatsAppIcon,
-      cls: "bg-[#25D366] text-white hover:bg-[#1ebe5b]",
+      cls: "bg-forest-700 text-[#25D366] hover:bg-forest-950",
       external: true,
     },
     {
       label: `Call ${company.phones[0]}`,
       href: `tel:${company.phones[0].replace(/\s/g, "")}`,
       icon: PhoneIcon,
-      cls: "bg-saffron text-forest-950 hover:bg-saffron-200",
+      cls: "bg-white text-forest-950 hover:bg-mint",
     },
     {
       label: company.email ? `Email ${company.email}` : "Email us",
       href: company.email ? `mailto:${company.email}` : "/contact",
       icon: MailIcon,
-      cls: "bg-forest text-white hover:bg-forest-700",
+      cls: "bg-forest text-white hover:bg-forest-500",
     },
   ];
 
   const base =
-    "peer flex h-12 w-12 items-center justify-center rounded-full shadow-lg shadow-forest-950/25 ring-1 ring-white/20 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron sm:h-14 sm:w-14";
+    "peer flex h-12 w-12 items-center justify-center shadow-lg shadow-black/20 ring-1 ring-black/5 transition duration-300 hover:-translate-y-0.5 hover:shadow-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-saffron sm:h-14 sm:w-14";
 
   return (
     <nav aria-label="Quick contact" className="fixed right-4 bottom-4 z-40 flex flex-col gap-3 sm:right-6 sm:bottom-6">
@@ -73,7 +73,7 @@ export default function FloatingContact() {
             </a>
           )}
           {/* Hover label (pointer devices only). */}
-          <span className="pointer-events-none absolute right-full mr-3 hidden translate-x-1 whitespace-nowrap rounded-full bg-forest-950 px-3 py-1.5 text-xs font-semibold text-white opacity-0 shadow-lg transition duration-200 peer-hover:translate-x-0 peer-hover:opacity-100 peer-focus-visible:translate-x-0 peer-focus-visible:opacity-100 sm:block">
+          <span className="pointer-events-none absolute right-full mr-3 hidden translate-x-1 whitespace-nowrap bg-forest-950 px-3 py-1.5 text-xs font-semibold text-white opacity-0 shadow-lg transition duration-200 peer-hover:translate-x-0 peer-hover:opacity-100 peer-focus-visible:translate-x-0 peer-focus-visible:opacity-100 sm:block">
             {it.label}
           </span>
         </div>

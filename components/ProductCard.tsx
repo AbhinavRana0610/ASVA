@@ -15,7 +15,6 @@ export default function ProductCard({ product, size = "md" }: { product: Product
       className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-forest/10 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-forest/15 hover:ring-forest/25"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-b from-mint to-white">
-        <div className="absolute -top-16 -right-16 h-40 w-40 rounded-full border-[22px] border-saffron/80 opacity-0 transition-all duration-700 [clip-path:inset(0_0_50%_50%)] group-hover:opacity-100" />
         <Image
           src={product.img}
           alt={product.name}

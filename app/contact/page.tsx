@@ -65,7 +65,7 @@ export default function ContactPage() {
             </Suspense>
           </Reveal>
           <Reveal delay={100} className="lg:col-span-5">
-            <div className="sticky top-28 overflow-hidden rounded-[2rem] bg-forest-950 text-white">
+            <div className="sticky top-28 overflow-hidden rounded-sm bg-forest-950 text-white">
               <div className="relative aspect-[4/3] w-full">
                 <iframe
                   title="ASVA India LLP location map"

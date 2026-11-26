@@ -1,22 +1,33 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-forest-950: #072622;
-  --color-forest-900: #0b3531;
-  --color-forest-800: #11473f;
-  --color-forest-700: #175a52;
-  --color-forest: #1f6b63;
-  --color-forest-500: #2f8278;
-  --color-forest-300: #8fbfb8;
-  --color-mint: #eef4f2;
-  --color-mint-200: #dde9e5;
-  --color-saffron: #f5a940;
-  --color-saffron-600: #e08f1f;
-  --color-saffron-200: #fbd9a8;
-  --color-ink: #0f1d1b;
+  /* Token names kept from the first design so every page restyles at once:
+     forest-* = charcoal / maroon, mint = warm beige, saffron = tan. */
+  --color-forest-950: #191919;
+  --color-forest-900: #222120;
+  --color-forest-800: #2d2b29;
+  --color-forest-700: #3b3a39;
+  --color-forest: #600901;
+  --color-forest-500: #7e1a0f;
+  --color-forest-300: #b9ae9d;
+  --color-mint: #f8f5f2;
+  --color-mint-200: #ece5dc;
+  --color-saffron: #c9b99f;
+  --color-saffron-600: #7a6b56;
+  --color-saffron-200: #e4dacb;
+  --color-ink: #1c1a19;
+  --color-cocoa: #3a2a1b;
 
-  --font-sans: var(--font-manrope);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-atkinson);
+  --font-display: var(--font-atkinson);
+  --font-serif: var(--font-dmserif);
+
+  /* Sharp, near-square corners throughout */
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 3px;
+  --radius-2xl: 3px;
+  --radius-3xl: 4px;
 
   --animate-marquee: marquee 40s linear infinite;
   --animate-float: float 7s ease-in-out infinite;
@@ -35,6 +46,10 @@
   from { opacity: 0; transform: translateY(16px) scale(0.97); }
   to { opacity: 1; transform: none; }
 }
+@keyframes heroFill {
+  from { transform: translateX(-100%); }
+  to { transform: none; }
+}
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-14px); }
@@ -47,13 +62,27 @@ html {
 body {
   background: #ffffff;
   color: var(--color-ink);
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-family: var(--font-atkinson), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--color-saffron);
-  color: var(--color-forest-950);
+  background: var(--color-forest);
+  color: #fff;
+}
+
+/* Headings: clean sans with one italic serif accent (em / .italic / .accent). */
+h1, h2, h3, .font-display {
+  font-weight: 400;
+}
+h1 em, h2 em, h3 em, h4 em,
+.font-display em, .font-display .italic,
+h1 .italic, h2 .italic, h3 .italic,
+.accent {
+  font-family: var(--font-dmserif), Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 /* Reveal-on-scroll */
@@ -73,19 +102,8 @@ body {
   .animate-marquee, .animate-float, .animate-spin-slow, dialog[open] { animation: none; }
 }
 
-/* Subtle grain + grid for premium surfaces */
-.grid-lines {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-.grid-lines-dark {
-  background-image:
-    linear-gradient(rgba(31, 107, 99, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31, 107, 99, 0.08) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
+/* Grid textures from the first design are switched off in this design. */
+.grid-lines, .grid-lines-dark { display: none; }
 
 /* Catalogue-style saw-tooth band (from the brochure footer) */
 .sawtooth {

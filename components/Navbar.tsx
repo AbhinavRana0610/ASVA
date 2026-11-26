@@ -61,24 +61,17 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-2" : "py-4"
+        scrolled ? "py-0 sm:py-2" : "py-0 sm:py-4"
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <nav
-          className={`flex items-center justify-between rounded-full border px-4 py-2.5 transition-all duration-500 sm:px-6 ${
-            scrolled
-              ? "border-white/10 bg-forest-950/85 shadow-2xl shadow-forest-950/30 backdrop-blur-xl"
-              : "border-white/15 bg-forest-950/30 backdrop-blur-md"
+          className={`flex items-center justify-between px-4 transition-all duration-500 sm:px-6 ${
+            scrolled ? "bg-forest-950/95 py-2.5 shadow-2xl shadow-black/30" : "bg-forest-950/80 py-3.5 backdrop-blur-md"
           }`}
         >
           <Link href="/" className="flex items-center gap-3" aria-label={`${company.name} home`}>
             <Image src="/images/brand/logo-white.png" alt="ASVA" width={464} height={136} className="h-7 w-auto sm:h-8" priority />
-            <span className="hidden border-l border-white/20 pl-3 text-[10px] font-semibold uppercase leading-tight tracking-[0.25em] text-white/70 md:block">
-              India
-              <br />
-              LLP
-            </span>
           </Link>
 
           <ul className="hidden items-center gap-1 lg:flex">
@@ -90,10 +83,8 @@ export default function Navbar() {
                     href={item.href}
                     onClick={blur}
                     aria-haspopup={hasMenu || undefined}
-                    className={`relative inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                      isActive(item.href)
-                        ? "bg-white/10 text-saffron"
-                        : "text-white/80 hover:text-white"
+                    className={`relative inline-flex items-center gap-1.5 px-3 py-2 text-[13px] uppercase tracking-[0.04em] transition-colors xl:px-4 ${
+                      isActive(item.href) ? "text-white underline decoration-saffron decoration-2 underline-offset-[10px]" : "text-white/80 hover:text-white"
                     }`}
                   >
                     {item.label}
@@ -114,12 +105,12 @@ export default function Navbar() {
                               href={cat.href}
                               onClick={blur}
                               aria-haspopup
-                              className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-saffron group-hover/cat:bg-white/10 group-hover/cat:text-saffron"
+                              className="flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white group-hover/cat:bg-white/10 group-hover/cat:text-saffron"
                             >
                               <span className="flex items-center gap-2">
                                 {cat.label}
                                 {cat.soon && (
-                                  <span className="rounded-full bg-saffron px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-forest-950">Soon</span>
+                                  <span className="bg-forest px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">Soon</span>
                                 )}
                               </span>
                               <svg viewBox="0 0 12 12" className="h-2.5 w-2.5" aria-hidden>
@@ -134,7 +125,7 @@ export default function Navbar() {
                                     <Link
                                       href={sub.href}
                                       onClick={blur}
-                                      className={`flex items-center gap-3 rounded-xl text-sm text-white/75 transition-colors hover:bg-white/10 hover:text-saffron ${sub.img ? "px-2 py-1.5" : "px-4 py-2.5"}`}
+                                      className={`flex items-center gap-3 rounded-xl text-sm text-white/75 transition-colors hover:bg-white/10 hover:text-white ${sub.img ? "px-2 py-1.5" : "px-4 py-2.5"}`}
                                     >
                                       {sub.img && (
                                         <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg bg-white">
@@ -160,14 +151,17 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             <Link
               href="/contact"
-              className="hidden rounded-full bg-saffron px-5 py-2.5 text-sm font-semibold text-forest-950 transition hover:bg-saffron-200 sm:inline-flex"
+              className="group hidden items-center gap-3 text-[13px] font-bold uppercase tracking-[0.06em] text-white sm:inline-flex"
             >
-              Get a Quote
+              Get in touch
+              <svg viewBox="0 0 20 20" fill="none" className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden>
+                <path d="M4 10h12m0 0-5-5m5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </Link>
             <button
               type="button"
               onClick={() => setOpenOn(open ? null : pathname)}
-              className="relative flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white lg:hidden"
+              className="relative flex h-10 w-10 items-center justify-center bg-white/10 text-white lg:hidden"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
@@ -200,7 +194,7 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       onClick={closeMenu}
-                      className={`font-display text-4xl ${isActive(item.href) ? "text-saffron" : "text-white"}`}
+                      className={`font-display text-4xl ${isActive(item.href) ? "accent text-saffron" : "text-white"}`}
                     >
                       {item.label}
                     </Link>
@@ -211,7 +205,7 @@ export default function Navbar() {
                         aria-expanded={mobileProductsOpen}
                         aria-controls="mobile-products"
                         aria-label={mobileProductsOpen ? "Hide product categories" : "Show product categories"}
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 text-white"
+                        className="flex h-11 w-11 shrink-0 items-center justify-center bg-white/10 text-white"
                       >
                         <svg viewBox="0 0 12 12" className={`h-3 w-3 transition-transform duration-300 ${mobileProductsOpen ? "rotate-180" : ""}`} aria-hidden>
                           <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -231,7 +225,7 @@ export default function Navbar() {
                           >
                             {cat.label}
                             {cat.soon && (
-                              <span className="rounded-full bg-saffron px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-forest-950">Soon</span>
+                              <span className="bg-forest px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">Soon</span>
                             )}
                           </Link>
                           <ul className="mt-2 flex flex-wrap gap-2">
@@ -240,7 +234,7 @@ export default function Navbar() {
                                 <Link
                                   href={sub.href}
                                   onClick={closeMenu}
-                                  className="inline-flex min-h-9 items-center rounded-full bg-white/10 px-3.5 py-1.5 text-sm text-white/80 transition-colors active:bg-saffron active:text-forest-950"
+                                  className="inline-flex min-h-9 items-center bg-white/10 px-3.5 py-1.5 text-sm text-white/80 transition-colors active:bg-forest active:text-white"
                                 >
                                   {sub.label}
                                 </Link>

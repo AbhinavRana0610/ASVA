@@ -34,7 +34,7 @@ export default function ContactForm() {
 
   if (sent)
     return (
-      <div className="flex min-h-[480px] flex-col items-center justify-center rounded-[2rem] bg-mint p-10 text-center">
+      <div className="flex min-h-[480px] flex-col items-center justify-center rounded-sm bg-mint p-10 text-center">
         <span className="flex h-16 w-16 items-center justify-center rounded-full bg-forest text-saffron">
           <Icon name="check" className="h-8 w-8" />
         </span>

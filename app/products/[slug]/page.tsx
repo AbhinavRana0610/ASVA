@@ -65,8 +65,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <div className="sticky top-28 space-y-4">
-              <div className="relative aspect-square overflow-hidden rounded-[2rem] bg-gradient-to-br from-white to-mint shadow-2xl shadow-forest/10 ring-1 ring-forest/10">
-                <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full border-[36px] border-saffron [clip-path:inset(0_0_50%_50%)]" />
+              <div className="relative aspect-square overflow-hidden rounded-sm bg-gradient-to-br from-white to-mint shadow-2xl shadow-forest/10 ring-1 ring-forest/10">
                 <Image src={p.img} alt={p.name} fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-contain p-10 mix-blend-multiply" />
               </div>
               {images.length > 1 && (

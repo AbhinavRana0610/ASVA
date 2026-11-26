@@ -1,20 +1,22 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Atkinson_Hyperlegible, DM_Serif_Display } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
 import EnquiryPopup from "@/components/EnquiryPopup";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const atkinson = Atkinson_Hyperlegible({
+  variable: "--font-atkinson",
   subsets: ["latin"],
-  axes: ["opsz"],
+  weight: ["400", "700"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dmserif",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${atkinson.variable} ${dmSerif.variable}`}>
       <body className="min-h-screen" suppressHydrationWarning>
         <Navbar />
         <main>{children}</main>

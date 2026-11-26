@@ -3,12 +3,7 @@ import type { ReactNode } from "react";
 
 export function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
-    <span
-      className={`inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] ${
-        light ? "text-saffron" : "text-forest"
-      }`}
-    >
-      <span className={`h-px w-8 ${light ? "bg-saffron" : "bg-saffron"}`} />
+    <span className={`inline-block text-[11px] font-bold uppercase tracking-[0.22em] ${light ? "text-saffron" : "text-forest"}`}>
       {children}
     </span>
   );
@@ -33,11 +28,9 @@ export function Heading({
     <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
       {eyebrow && <Eyebrow light={light}>{eyebrow}</Eyebrow>}
       <h2
-        className={`mt-4 font-display leading-[1.05] tracking-tight text-balance ${
-          size === "xs" ? "text-[1.8rem] sm:text-[2.4rem]" : size === "sm" ? "text-[2rem] sm:text-[2.7rem]" : "text-4xl sm:text-5xl"
-        } ${
-          light ? "text-white" : "text-forest-950"
-        }`}
+        className={`${eyebrow ? "mt-4" : ""} font-display leading-[1.1] tracking-tight text-balance ${
+          size === "xs" ? "text-[1.9rem] sm:text-[2.4rem]" : size === "sm" ? "text-[2.1rem] sm:text-[2.8rem]" : "text-[2.4rem] sm:text-[3.4rem]"
+        } ${light ? "text-white [&_em]:text-white" : "text-forest-950 [&_em]:text-forest"}`}
       >
         {title}
       </h2>
@@ -60,18 +53,19 @@ export function Button({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "dark" | "ghost" | "outline";
+  variant?: "primary" | "dark" | "ghost" | "outline" | "tan";
   className?: string;
   download?: boolean;
   external?: boolean;
 }) {
   const styles = {
-    primary: "bg-saffron text-forest-950 hover:bg-saffron-200",
-    dark: "bg-forest text-white hover:bg-forest-700",
-    ghost: "bg-white/10 text-white ring-1 ring-white/25 hover:bg-white/20 backdrop-blur",
-    outline: "text-forest ring-1 ring-forest/30 hover:bg-forest hover:text-white",
+    primary: "bg-forest text-white hover:bg-forest-500",
+    tan: "bg-saffron-600 text-white hover:bg-[#6a5c49]",
+    dark: "bg-forest-950 text-white hover:bg-forest-700",
+    ghost: "bg-white/10 text-white ring-1 ring-white/30 hover:bg-white/20 backdrop-blur",
+    outline: "text-forest-950 ring-1 ring-forest-950/30 hover:bg-forest-950 hover:text-white",
   }[variant];
-  const cls = `group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-all duration-300 ${styles} ${className}`;
+  const cls = `group inline-flex min-w-[200px] items-center justify-between gap-8 px-5 py-3.5 text-[13px] font-bold uppercase tracking-[0.08em] transition-colors duration-300 ${styles} ${className}`;
   const inner = (
     <>
       {children}
@@ -116,16 +110,13 @@ export function PageHero({
   const copy = (
     <>
       <Eyebrow light>{eyebrow}</Eyebrow>
-      <h1 className="mt-6 max-w-4xl font-display text-5xl leading-[1] tracking-tight text-balance sm:text-7xl">{title}</h1>
+      <h1 className="mt-6 max-w-4xl font-display text-5xl leading-[1.05] tracking-tight text-balance sm:text-7xl [&_em]:text-saffron">{title}</h1>
       {text && <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">{text}</p>}
       {children}
     </>
   );
   return (
-    <section className="relative overflow-hidden bg-forest-950 pt-40 pb-24 text-white sm:pt-48 sm:pb-32">
-      <div className="grid-lines absolute inset-0 [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
-      <div className="absolute -top-[160px] -right-[160px] h-[320px] w-[320px] rounded-full border-[52px] border-saffron [clip-path:inset(50%_50%_0_0)] sm:-top-[240px] sm:-right-[240px] sm:h-[480px] sm:w-[480px] sm:border-[76px]" />
-      <div className="absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-forest/40 blur-3xl" />
+    <section className="relative overflow-hidden bg-forest-950 pt-40 pb-20 text-white sm:pt-48 sm:pb-28">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         {aside ? (
           <div className="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
@@ -136,7 +127,6 @@ export function PageHero({
           copy
         )}
       </div>
-      <div className="sawtooth absolute inset-x-0 bottom-0 h-3.5" />
     </section>
   );
 }
