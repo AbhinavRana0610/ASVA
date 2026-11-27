@@ -60,7 +60,7 @@ export function Button({
 }) {
   const styles = {
     primary: "bg-forest text-white hover:bg-forest-500",
-    tan: "bg-saffron-600 text-white hover:bg-[#6a5c49]",
+    tan: "bg-saffron-600 text-white hover:bg-[#8a5008]",
     dark: "bg-forest-950 text-white hover:bg-forest-700",
     ghost: "bg-white/10 text-white ring-1 ring-white/30 hover:bg-white/20 backdrop-blur",
     outline: "text-forest-950 ring-1 ring-forest-950/30 hover:bg-forest-950 hover:text-white",

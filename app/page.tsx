@@ -8,14 +8,14 @@ import ProductRail from "@/components/ProductRail";
 import ZoomImage from "@/components/ZoomImage";
 import TiltCard from "@/components/TiltCard";
 import UpcomingStrip from "@/components/UpcomingStrip";
-import { Arrow, Button, Eyebrow, Heading, Icon } from "@/components/ui";
+import { Arrow, Button, Eyebrow, Heading } from "@/components/ui";
 import {
   chimneySeries,
   chimneys,
   clientLogos,
-  company,
   facility,
   features,
+  mission,
   newLaunches,
   seriesHref,
   seriesStats,
@@ -67,12 +67,6 @@ const curated = [
   { title: "Advanced", accent: "Suction", text: features[0].text + ", from motion-sensor BLDC models.", img: "/images/products/bldc-4.avif" },
   { title: "Energy", accent: "Efficient", text: features[2].text + ", with no capacitor and noise below 57 dB.", img: "/images/products/bldc-9.avif" },
   { title: "Durable", accent: "Build", text: features[3].text + ", in 60, 75 and 90 cm.", img: "/images/products/curve-4.avif" },
-];
-
-const experience = [
-  { icon: "shield", title: "Durable build", text: "0.5 mm GPSP body with a black powder-coated finish on every model." },
-  { icon: "wave", title: "Low noise", text: "Quiet operation, rated below 54–57 dB across the range." },
-  { icon: "support", title: "After-sales support", text: "User-friendly controls and reliable service." },
 ];
 
 const help = [
@@ -203,7 +197,7 @@ export default function Home() {
                   <Link href={`/products/${p.slug}`} className="group flex items-center justify-between bg-forest px-3 py-3 text-[11px] font-bold uppercase tracking-[0.08em] text-white hover:bg-forest-500">
                     View details <Arrow className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </Link>
-                  <Link href="/contact" className="group flex items-center justify-between bg-saffron-600 px-3 py-3 text-[11px] font-bold uppercase tracking-[0.08em] text-white hover:bg-[#6a5c49]">
+                  <Link href="/contact" className="group flex items-center justify-between bg-saffron-600 px-3 py-3 text-[11px] font-bold uppercase tracking-[0.08em] text-white hover:bg-[#8a5008]">
                     Enquire <Arrow className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                   </Link>
                 </div>
@@ -323,43 +317,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ------------------------------------------------ MADE IN + EXPERIENCE */}
+      {/* ------------------------------------------------ MISSION (catalogue p.3) */}
       <section className="grid lg:grid-cols-2">
-        <div className="relative overflow-hidden bg-forest-950 px-4 py-20 text-white sm:px-12 sm:py-24 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]">
-          <Icon name="pin" className="absolute -right-10 -bottom-10 h-72 w-72 text-white/[0.04]" />
-          <Reveal className="relative">
-            <h2 className="font-display text-[2.4rem] leading-[1.1] sm:text-[3.2rem]">
-              Made in
-              <br />
-              <em className="text-saffron">Barhi, Sonipat</em>
+        <Reveal variant="unveil" className="relative min-h-[324px] overflow-hidden bg-forest-950 lg:min-h-[504px]">
+          <Image src="/images/banner/banner-3-wifi-touch-chimney.avif" alt="ASVA chimney clearing steam above a gas hob in a modern kitchen" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-950/85 via-forest-950/20 to-transparent" />
+          <div className="unveil-text absolute right-0 bottom-0 left-0 px-4 pb-10 sm:px-12 lg:pl-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-saffron">ASVA India LLP</p>
+            <h2 className="mt-3 font-display text-[2.6rem] leading-[1.05] text-white sm:text-[3.6rem]">
+              Our <em className="text-saffron">Mission</em>
             </h2>
-            <p className="mt-6 max-w-sm leading-relaxed text-white/70">
-              {company.address.join(", ")}. A <Counter to={60000} format /> sq ft production area.
-            </p>
-            <div className="mt-10">
-              <Button href="/contact" variant="tan">
-                Contact us
-              </Button>
-            </div>
-          </Reveal>
-        </div>
-        <div className="bg-white px-4 py-20 sm:px-12 sm:py-24 lg:pr-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]">
+          </div>
+        </Reveal>
+        <div className="bg-white px-4 py-16 sm:px-12 sm:py-20 lg:py-[46px] lg:pr-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]">
           <Reveal>
-            <h2 className="font-display text-[2.2rem] leading-tight text-forest-950 sm:text-[3rem]">
-              The ASVA <em className="text-forest">Experience</em>
-            </h2>
+            <p className="max-w-lg leading-relaxed text-forest-950/70">
+              Driven by innovation and customer satisfaction, we help families create cleaner, healthier and more comfortable cooking spaces.
+            </p>
           </Reveal>
-          <ul className="mt-10 divide-y divide-forest-950/10">
-            {experience.map((e, i) => (
-              <Reveal key={e.title} as="li" delay={i * 80} className="flex gap-6 py-6 first:pt-0">
-                <Icon name={e.icon} className="h-10 w-10 shrink-0 text-forest" />
-                <div>
-                  <h3 className="text-xl text-forest-950">{e.title}</h3>
-                  <p className="mt-1.5 text-[0.92rem] leading-relaxed text-forest-950/60">{e.text}</p>
+          <ol className="mt-8 space-y-3">
+            {mission.map((m, i) => (
+              <Reveal key={m} as="li" delay={i * 80} variant="right">
+                <div className="group flex items-center gap-5 bg-forest px-5 py-4 text-white transition-colors duration-300 hover:bg-forest-700">
+                  <span className="w-8 shrink-0 text-lg font-bold text-saffron">0{i + 1}</span>
+                  <span className="text-lg transition-transform duration-300 group-hover:translate-x-1 sm:text-xl">{m}</span>
                 </div>
               </Reveal>
             ))}
-          </ul>
+          </ol>
+          <Reveal delay={450} className="mt-10">
+            <Button href="/about" variant="tan">
+              About ASVA
+            </Button>
+          </Reveal>
         </div>
       </section>
 

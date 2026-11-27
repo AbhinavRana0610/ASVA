@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Token names kept from the first design so every page restyles at once:
-     forest-* = charcoal / maroon, mint = warm beige, saffron = tan. */
-  --color-forest-950: #191919;
-  --color-forest-900: #222120;
-  --color-forest-800: #2d2b29;
-  --color-forest-700: #3b3a39;
-  --color-forest: #600901;
-  --color-forest-500: #7e1a0f;
-  --color-forest-300: #b9ae9d;
-  --color-mint: #f8f5f2;
-  --color-mint-200: #ece5dc;
-  --color-saffron: #c9b99f;
-  --color-saffron-600: #7a6b56;
-  --color-saffron-200: #e4dacb;
-  --color-ink: #1c1a19;
-  --color-cocoa: #3a2a1b;
+  /* Token names kept from the first design so every page restyles at once.
+     Palette follows the ASVA catalogue PDF: dark green (#206b64),
+     orange (#faaf40) and white.
+     forest-* = dark green, mint = green-tinted off-white, saffron = orange. */
+  --color-forest-950: #0c2421;
+  --color-forest-900: #112f2c;
+  --color-forest-800: #163d39;
+  --color-forest-700: #1a524c;
+  --color-forest: #206b64;
+  --color-forest-500: #2a8279;
+  --color-forest-300: #9cc3be;
+  --color-mint: #f3f8f7;
+  --color-mint-200: #e1edeb;
+  --color-saffron: #faaf40;
+  --color-saffron-600: #a8620a;
+  --color-saffron-200: #fde3bd;
+  --color-ink: #10201e;
+  --color-cocoa: #1c3b37;
 
   --font-sans: var(--font-atkinson);
   --font-display: var(--font-atkinson);
