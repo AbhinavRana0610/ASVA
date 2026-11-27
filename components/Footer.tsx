@@ -2,51 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { company, nav, series, seriesHref } from "@/lib/data";
 
-const Chevron = () => (
-  <svg viewBox="0 0 12 12" className="h-3 w-3 shrink-0 text-white/50 transition-transform group-hover:translate-x-1 group-hover:text-white" aria-hidden>
-    <path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
 export default function Footer() {
-  const helpLinks = [
-    { label: "Chat on WhatsApp", href: `https://wa.me/${company.whatsapp}`, external: true },
-    { label: `Call ${company.phones[0]}`, href: `tel:${company.phones[0].replace(/\s/g, "")}`, external: true },
-    { label: "Download the catalogue", href: "/catalogue" },
-    { label: "Send an enquiry", href: "/contact" },
-  ];
-
   return (
     <footer className="text-white">
-      {/* Help band */}
-      <section className="bg-cocoa">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12">
-          <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-saffron lg:col-span-5">Quick links</p>
-          <div className="lg:col-span-7">
-            <h2 className="font-display text-[2rem] leading-tight text-white/70 sm:text-[2.6rem]">
-              We&apos;re here at every step of your <em className="text-white">kitchen experience</em>
-            </h2>
-            <ul className="mt-10 border-t border-white/15">
-              {helpLinks.map((l) => (
-                <li key={l.label} className="border-b border-white/15">
-                  {l.external ? (
-                    <a href={l.href} target={l.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="group flex items-center justify-between py-5 text-lg text-white/90 hover:text-white">
-                      {l.label}
-                      <Chevron />
-                    </a>
-                  ) : (
-                    <Link href={l.href} className="group flex items-center justify-between py-5 text-lg text-white/90 hover:text-white">
-                      {l.label}
-                      <Chevron />
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* Main footer */}
       <section className="bg-forest-950">
         <div className="mx-auto max-w-7xl px-4 pt-20 pb-10 sm:px-6">

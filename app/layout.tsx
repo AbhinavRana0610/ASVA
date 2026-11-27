@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible, DM_Serif_Display } from "next/font/google";
+import { Atkinson_Hyperlegible } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingContact from "@/components/FloatingContact";
@@ -10,13 +10,6 @@ const atkinson = Atkinson_Hyperlegible({
   variable: "--font-atkinson",
   subsets: ["latin"],
   weight: ["400", "700"],
-});
-
-const dmSerif = DM_Serif_Display({
-  variable: "--font-dmserif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${atkinson.variable} ${dmSerif.variable}`}>
+    <html lang="en" className={atkinson.variable}>
       <body className="min-h-screen" suppressHydrationWarning>
         <div className="scroll-progress" aria-hidden />
         <Navbar />

@@ -20,7 +20,6 @@
 
   --font-sans: var(--font-atkinson);
   --font-display: var(--font-atkinson);
-  --font-serif: var(--font-dmserif);
 
   /* Sharp, near-square corners throughout */
   --radius-md: 2px;
@@ -71,18 +70,18 @@ body {
   color: #fff;
 }
 
-/* Headings: clean sans with one italic serif accent (em / .italic / .accent). */
+/* Headings: one font site-wide. Accents (em / .italic / .accent) keep the
+   site's sans font, upright: only their colour sets them apart. */
 h1, h2, h3, .font-display {
   font-weight: 400;
 }
+em, .italic,
 h1 em, h2 em, h3 em, h4 em,
 .font-display em, .font-display .italic,
 h1 .italic, h2 .italic, h3 .italic,
 .accent {
-  font-family: var(--font-dmserif), Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: inherit;
+  font-style: normal;
 }
 
 /* Reveal-on-scroll */
