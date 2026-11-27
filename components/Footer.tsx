@@ -52,7 +52,7 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-4 pt-20 pb-10 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <Image src="/images/brand/logo-white.png" alt="ASVA" width={464} height={136} className="h-9 w-auto" />
+              <Image src="/images/brand/logo-white.avif" alt="ASVA" width={464} height={136} className="h-9 w-auto" />
               <p className="mt-8 font-display text-3xl leading-tight text-white/75 sm:text-4xl">
                 Elevating every
                 <br />

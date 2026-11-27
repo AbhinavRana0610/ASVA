@@ -66,11 +66,11 @@ export const facility = {
 };
 
 export const promoters = [
-  { name: "Saurabh Joshi", role: "Director", bio: "B.Tech Mechanical · 24 years in manufacturing", img: "/images/team/saurabh-joshi.jpg" },
-  { name: "Anurag Bansal", role: "Director", bio: "B.Tech Mechanical · 24 years in manufacturing", img: "/images/team/anurag-bansal.jpg" },
-  { name: "Punkaj Jain", role: "Director", bio: "B.Tech Mechanical · 24 years in manufacturing", img: "/images/team/punkaj-jain.jpg" },
-  { name: "Ankit Goyal", role: "Director", bio: "B.Tech Mechanical · 24 years in manufacturing", img: "/images/team/ankit-goyal.jpg" },
-  { name: "Pravin Sharma", role: "Promoter, IGNIQUE", bio: "B.E. Mechanical, MBA Operations · 23 years of global leadership", img: "/images/team/pravin-sharma.jpg" },
+  { name: "Saurabh Joshi", role: "Director", bio: "B.Tech Mechanical · 24 years in manufacturing", img: "/images/team/saurabh-joshi.avif" },
+  { name: "Anurag Bansal", role: "Director", bio: "B.Tech Mechanical · 24 years in manufacturing", img: "/images/team/anurag-bansal.avif" },
+  { name: "Punkaj Jain", role: "Director", bio: "B.Tech Mechanical · 24 years in manufacturing", img: "/images/team/punkaj-jain.avif" },
+  { name: "Ankit Goyal", role: "Director", bio: "B.Tech Mechanical · 24 years in manufacturing", img: "/images/team/ankit-goyal.avif" },
+  { name: "Pravin Sharma", role: "Promoter, IGNIQUE", bio: "B.E. Mechanical, MBA Operations · 23 years of global leadership", img: "/images/team/pravin-sharma.avif" },
 ];
 
 export const ignique = {
@@ -106,32 +106,32 @@ export const clients = ["Hindware", "Sunshine", "Inalsa", "Kaff", "Lifeguard", "
 // Logos cropped from the client-brands slide in ASVA-PDF1.pptx. `h` = display height in px,
 // tuned so square and wide marks look visually balanced.
 export const clientLogos = [
-  { name: "Hindware", src: "/images/clients/hindware.png", w: 198, hgt: 199, h: 72 },
-  { name: "Sunshine", src: "/images/clients/sunshine.png", w: 397, hgt: 88, h: 40 },
-  { name: "Inalsa", src: "/images/clients/inalsa.png", w: 355, hgt: 127, h: 52 },
-  { name: "Kaff", src: "/images/clients/kaff.png", w: 214, hgt: 214, h: 66 },
-  { name: "Lifeguard", src: "/images/clients/lifeguard.png", w: 390, hgt: 155, h: 54 },
-  { name: "Padmini", src: "/images/clients/padmini.png", w: 197, hgt: 90, h: 48 },
+  { name: "Hindware", src: "/images/clients/hindware.avif", w: 198, hgt: 199, h: 72 },
+  { name: "Sunshine", src: "/images/clients/sunshine.avif", w: 397, hgt: 88, h: 40 },
+  { name: "Inalsa", src: "/images/clients/inalsa.avif", w: 355, hgt: 127, h: 52 },
+  { name: "Kaff", src: "/images/clients/kaff.avif", w: 214, hgt: 214, h: 66 },
+  { name: "Lifeguard", src: "/images/clients/lifeguard.avif", w: 390, hgt: 155, h: 54 },
+  { name: "Padmini", src: "/images/clients/padmini.avif", w: 197, hgt: 90, h: 48 },
 ];
 
 export const newLaunches = [
-  { name: "Curve Slim", text: "Slimmest in India. A curved slim profile in black powder-coated 0.5 mm GPSP, available in 60, 75 and 90 cm.", img: "/images/upcoming/curve-slim.jpg" },
-  { name: "Slim-20 mm", text: "Slimmest in India. A slim-profile chimney with LED lighting and motion-sensor or push-button control, available in 60, 75 and 90 cm.", img: "/images/upcoming/slim-20mm.jpg" },
-  { name: "Hexagonal Ductless", text: "Innovative hexagonal body design featuring advanced ductless operation for efficient and hassle-free kitchen ventilation.", img: "/images/upcoming/hexagonal-ductless.png" },
-  { name: "Curve Draw", text: "Compact curved draw design for a sleek and modern appearance.", img: "/images/upcoming/curve-draw.jpg" },
+  { name: "Curve Slim", text: "Slimmest in India. A curved slim profile in black powder-coated 0.5 mm GPSP, available in 60, 75 and 90 cm.", img: "/images/upcoming/curve-slim.avif" },
+  { name: "Slim-20 mm", text: "Slimmest in India. A slim-profile chimney with LED lighting and motion-sensor or push-button control, available in 60, 75 and 90 cm.", img: "/images/upcoming/slim-20mm.avif" },
+  { name: "Hexagonal Ductless", text: "Innovative hexagonal body design featuring advanced ductless operation for efficient and hassle-free kitchen ventilation.", img: "/images/upcoming/hexagonal-ductless.avif" },
+  { name: "Curve Draw", text: "Compact curved draw design for a sleek and modern appearance.", img: "/images/upcoming/curve-draw.avif" },
 ];
 
 export const upcomingCollection = [
-  { name: "Android Chimney", text: "Built-in streaming display", img: "/images/upcoming/android-chimney.jpg" },
-  { name: "In-built Wi-Fi & Voice Control Chimney", text: "Connected control", img: "/images/upcoming/wifi-voice-chimney.jpg" },
-  { name: "Pyramid SS-Mirror", text: "Stainless steel mirror finish", img: "/images/upcoming/pyramid-ss-mirror.png" },
+  { name: "Android Chimney", text: "Built-in streaming display", img: "/images/upcoming/android-chimney.avif" },
+  { name: "In-built Wi-Fi & Voice Control Chimney", text: "Connected control", img: "/images/upcoming/wifi-voice-chimney.avif" },
+  { name: "Pyramid SS-Mirror", text: "Stainless steel mirror finish", img: "/images/upcoming/pyramid-ss-mirror.avif" },
 ];
 
 export const upcomingProducts = [
-  { name: "Stick-type Vacuum Cleaner", img: "/images/upcoming/stick-vacuum.jpg" },
-  { name: "Air Fryer with OTG", img: "/images/upcoming/airfryer-otg.jpg" },
-  { name: "Gas Hobs", img: "/images/upcoming/gas-hob.jpg" },
-  { name: "Infrared Cooktop", img: "/images/upcoming/infrared-cooktop.jpg" },
+  { name: "Stick-type Vacuum Cleaner", img: "/images/upcoming/stick-vacuum.avif" },
+  { name: "Air Fryer with OTG", img: "/images/upcoming/airfryer-otg.avif" },
+  { name: "Gas Hobs", img: "/images/upcoming/gas-hob.avif" },
+  { name: "Infrared Cooktop", img: "/images/upcoming/infrared-cooktop.avif" },
 ];
 
 // ---------------------------------------------------------------- products
@@ -145,12 +145,12 @@ export const series: {
   blurb: string;
   cover: string;
 }[] = [
-  { id: "curve", code: "CRV", name: "Curve Series", blurb: "200 W · 230 V curved-glass chimneys with motion-sensor or push-button control and LED lighting.", cover: "/images/products/curve-4.jpg" },
-  { id: "t-type", code: "TT", name: "T-Type Series", blurb: "Clean T-profile hoods in 60, 75 and 90 cm with motion sensor control and baffle or filterless options.", cover: "/images/products/t-type-1.png" },
-  { id: "pyramid", code: "PYR", name: "Pyramid Series", blurb: "Classic pyramid hoods in 60, 75 and 90 cm, from 1,100 to 1,500 m³/h suction.", cover: "/images/products/pyramid-3.jpg" },
-  { id: "ductless", code: "DCT", name: "Ductless Series", blurb: "Hexagonal body with advanced ductless operation for hassle-free ventilation.", cover: "/images/products/hexagonal-ductless.png" },
-  { id: "bldc", code: "BLDC", name: "BLDC Motor Series", blurb: "Filterless, motion sensor control, noise below 57 dB, no capacitor — up to 2,500 m³/h.", cover: "/images/products/bldc-9.jpg" },
-  { id: "vacuum", code: "VAC", name: "Vacuum Cleaners", blurb: "Wet & dry stainless-steel tank vacuum cleaners from 12 to 42 litres.", cover: "/images/products/vacuum-12in.jpg" },
+  { id: "curve", code: "CRV", name: "Curve Series", blurb: "200 W · 230 V curved-glass chimneys with motion-sensor or push-button control and LED lighting.", cover: "/images/products/curve-4.avif" },
+  { id: "t-type", code: "TT", name: "T-Type Series", blurb: "Clean T-profile hoods in 60, 75 and 90 cm with motion sensor control and baffle or filterless options.", cover: "/images/products/t-type-1.avif" },
+  { id: "pyramid", code: "PYR", name: "Pyramid Series", blurb: "Classic pyramid hoods in 60, 75 and 90 cm, from 1,100 to 1,500 m³/h suction.", cover: "/images/products/pyramid-3.avif" },
+  { id: "ductless", code: "DCT", name: "Ductless Series", blurb: "Hexagonal body with advanced ductless operation for hassle-free ventilation.", cover: "/images/products/hexagonal-ductless.avif" },
+  { id: "bldc", code: "BLDC", name: "BLDC Motor Series", blurb: "Filterless, motion sensor control, noise below 57 dB, no capacitor — up to 2,500 m³/h.", cover: "/images/products/bldc-9.avif" },
+  { id: "vacuum", code: "VAC", name: "Vacuum Cleaners", blurb: "Wet & dry stainless-steel tank vacuum cleaners from 12 to 42 litres.", cover: "/images/products/vacuum-12in.avif" },
 ];
 
 export type Chimney = {
@@ -243,7 +243,7 @@ const rows: Row[] = [
   ["ASVA-BLDC-CD7", "BLDC 7 Curve Draw", "bldc", "—", "bldc-7.jpg", "130 W", "N/A", "Motion Sensor", "<57 dB", 1800, '9" metal blower & metal housing', "Filterless (280×360 mm)", "Rectangular big (1 × 1.5 W)", [70, 72.5, 75]],
   ["ASVA-BLDC-TD8", "BLDC 8 (T Draw)", "bldc", "—", "bldc-8.jpg", "130 W", "N/A", "Motion Sensor", "<57 dB", 1800, '9" metal blower & metal housing', "Filterless (290×390 mm)", "Rectangular big (1 × 1.5 W)", [65, 69, 72.5]],
   ["ASVA-BLDC-CRV9", "BLDC 9 Curve", "bldc", "—", "bldc-9.jpg", "130 W", "N/A", "Motion Sensor", "<57 dB", 1800, '9" metal blower & metal housing', "Filterless (465×315 mm)", "Rectangular (2 × 1.5 W)", [69, 72.5, 76.5]],
-  ["ASVA-BLDC-INC10", "BLDC 10 Inclined", "bldc", "—", "bldc-10.png", "130 W", "N/A", "Motion Sensor", "<57 dB", 1800, '9" metal blower & metal housing', "Filterless (465×315 mm)", "Rectangular mini (2 × 1.5 W)", [null, null, null], { gallery: ["/images/products/bldc-10-hydraulic.jpg"], badge: "Hydraulic variant" }],
+  ["ASVA-BLDC-INC10", "BLDC 10 Inclined", "bldc", "—", "bldc-10.png", "130 W", "N/A", "Motion Sensor", "<57 dB", 1800, '9" metal blower & metal housing', "Filterless (465×315 mm)", "Rectangular mini (2 × 1.5 W)", [null, null, null], { gallery: ["/images/products/bldc-10-hydraulic.avif"], badge: "Hydraulic variant" }],
 ];
 
 const slugify = (s: string) =>
@@ -276,7 +276,7 @@ export const vacuums: Vacuum[] = [
     name: 'Wet & Dry Vacuum — Tank 12"',
     series: "vacuum",
     display: "25 / 35 / 42 L",
-    img: "/images/products/vacuum-12in.jpg",
+    img: "/images/products/vacuum-12in.avif",
     capacities: "25, 35, 42 L",
     points: [
       "Power: 1,700 W",
@@ -298,7 +298,7 @@ export const vacuums: Vacuum[] = [
     name: 'Wet & Dry Vacuum — Tank 10.5"',
     series: "vacuum",
     display: "12 / 15 / 20 L",
-    img: "/images/products/vacuum-10in.jpg",
+    img: "/images/products/vacuum-10in.avif",
     capacities: "12, 15, 20 L",
     points: [
       "Power: 1,200 W",

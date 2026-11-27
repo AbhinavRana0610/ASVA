@@ -91,7 +91,7 @@ export default function EnquiryPopup() {
             Find the right <span className="italic text-saffron">chimney</span> for you.
           </p>
           <div className="relative mx-auto mt-6 aspect-square w-full max-w-[200px] rounded-full bg-gradient-to-br from-white to-mint-200">
-            <Image src="/images/products/bldc-9.jpg" alt="" fill sizes="200px" className="object-contain p-6 mix-blend-multiply" />
+            <Image src="/images/products/bldc-9.avif" alt="" fill sizes="200px" className="object-contain p-6 mix-blend-multiply" />
           </div>
           <ul className="relative mt-auto space-y-2 pt-6 text-sm text-white/75">
             {["Prices for 60, 75 & 90 cm", "OEM & dealership enquiries", "Reply on WhatsApp"].map((t) => (

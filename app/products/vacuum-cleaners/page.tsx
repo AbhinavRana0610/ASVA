@@ -64,7 +64,7 @@ export default function VacuumCleanersPage() {
 
             <Reveal delay={150}>
               <div className="relative aspect-[3/2] overflow-hidden rounded-sm ring-1 ring-white/10">
-                <Image src="/images/products/vacuum-hero.jpg" alt="ASVA wet and dry vacuum cleaner" fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+                <Image src="/images/products/vacuum-hero.avif" alt="ASVA wet and dry vacuum cleaner" fill priority sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 via-transparent to-transparent" />
                 <p className="absolute bottom-5 left-6 font-display text-2xl">12 L to 42 L</p>
               </div>

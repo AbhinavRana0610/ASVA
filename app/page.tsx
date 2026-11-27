@@ -28,10 +28,10 @@ import {
 // Everything below comes from the ASVA documents via lib/data.ts.
 
 const heroSlides: HeroSlide[] = [
-  { img: "/images/banner/banner-1-curve-glass-chimney.png", title: "Curve", accent: "Slim", text: "Our new launched chimney: slimmest in India.", cta: "Explore chimneys", href: "/products/kitchen-chimneys" },
-  { img: "/images/banner/banner-2-android-display-chimney.png", title: "Android", accent: "Chimney", text: "Built-in streaming display. Part of the upcoming collection.", cta: "See what's next", href: "/#upcoming" },
-  { img: "/images/banner/banner-3-wifi-touch-chimney.png", title: "Wi-Fi & Voice", accent: "Control", text: "An in-built Wi-Fi and voice-control chimney, coming soon.", cta: "See what's next", href: "/#upcoming" },
-  { img: "/images/banner/banner-4-wet-dry-vacuums.png", title: "Wet & Dry", accent: "Vacuum Cleaners", text: "Stainless steel tanks from 12 to 42 litres.", cta: "Explore vacuums", href: "/products/vacuum-cleaners" },
+  { img: "/images/banner/banner-1-curve-glass-chimney.avif", title: "Curve", accent: "Slim", text: "Our new launched chimney: slimmest in India.", cta: "Explore chimneys", href: "/products/kitchen-chimneys" },
+  { img: "/images/banner/banner-2-android-display-chimney.avif", title: "Android", accent: "Chimney", text: "Built-in streaming display. Part of the upcoming collection.", cta: "See what's next", href: "/#upcoming" },
+  { img: "/images/banner/banner-3-wifi-touch-chimney.avif", title: "Wi-Fi & Voice", accent: "Control", text: "An in-built Wi-Fi and voice-control chimney, coming soon.", cta: "See what's next", href: "/#upcoming" },
+  { img: "/images/banner/banner-4-wet-dry-vacuums.avif", title: "Wet & Dry", accent: "Vacuum Cleaners", text: "Stainless steel tanks from 12 to 42 litres.", cta: "Explore vacuums", href: "/products/vacuum-cleaners" },
 ];
 
 const tabAccent: Record<string, string> = {
@@ -64,9 +64,9 @@ const featuredSlugs = ["bldc-4-slim-25", "curve-6-dj", "t-type-3", "pyramid-6", 
 const featured = featuredSlugs.map((s) => chimneys.find((c) => c.slug === s)).filter((c): c is Chimney => Boolean(c));
 
 const curated = [
-  { title: "Advanced", accent: "Suction", text: features[0].text + ", from motion-sensor BLDC models.", img: "/images/products/bldc-4.jpg" },
-  { title: "Energy", accent: "Efficient", text: features[2].text + ", with no capacitor and noise below 57 dB.", img: "/images/products/bldc-9.jpg" },
-  { title: "Durable", accent: "Build", text: features[3].text + ", in 60, 75 and 90 cm.", img: "/images/products/curve-4.jpg" },
+  { title: "Advanced", accent: "Suction", text: features[0].text + ", from motion-sensor BLDC models.", img: "/images/products/bldc-4.avif" },
+  { title: "Energy", accent: "Efficient", text: features[2].text + ", with no capacitor and noise below 57 dB.", img: "/images/products/bldc-9.avif" },
+  { title: "Durable", accent: "Build", text: features[3].text + ", in 60, 75 and 90 cm.", img: "/images/products/curve-4.avif" },
 ];
 
 const experience = [
@@ -76,21 +76,21 @@ const experience = [
 ];
 
 const help = [
-  { title: "Kitchen", accent: "Chimneys", img: "/images/products/curve-7.jpg", href: "/products/kitchen-chimneys", dark: false },
-  { title: "Vacuum", accent: "Cleaners", img: "/images/products/vacuum-hero.jpg", href: "/products/vacuum-cleaners", dark: false },
+  { title: "Kitchen", accent: "Chimneys", img: "/images/products/curve-7.avif", href: "/products/kitchen-chimneys", dark: false },
+  { title: "Vacuum", accent: "Cleaners", img: "/images/products/vacuum-hero.avif", href: "/products/vacuum-cleaners", dark: false },
   { title: "Download", accent: "Catalogue", img: "", href: "/catalogue", dark: true },
 ];
 
-// Cropped from the factory photo collage (images/company/shopfloor.jpg).
+// Cropped from the factory photo collage (images/company/shopfloor.avif).
 const facilityPhotos: { img: string; label: string; span?: string }[] = [
-  { img: "/images/company/factory.jpg", label: "Our plant, Barhi, Sonipat", span: "col-span-2 row-span-2" },
-  { img: "/images/facility/shop-floor-overview.jpg", label: "60,000 sq ft shop floor", span: "col-span-2" },
-  { img: "/images/facility/cnc-bending-press-1.jpg", label: "CNC bending presses" },
-  { img: "/images/facility/power-presses.jpg", label: "Power presses" },
-  { img: "/images/facility/spot-welding.jpg", label: "Spot welding" },
-  { img: "/images/facility/assembly-line.jpg", label: "Chimney assembly line" },
-  { img: "/images/facility/sheet-metal-line.jpg", label: "Sheet-metal fabrication" },
-  { img: "/images/facility/testing-station.jpg", label: "Final assembly & testing" },
+  { img: "/images/company/factory.avif", label: "Our plant, Barhi, Sonipat", span: "col-span-2 row-span-2" },
+  { img: "/images/facility/shop-floor-overview.avif", label: "60,000 sq ft shop floor", span: "col-span-2" },
+  { img: "/images/facility/cnc-bending-press-1.avif", label: "CNC bending presses" },
+  { img: "/images/facility/power-presses.avif", label: "Power presses" },
+  { img: "/images/facility/spot-welding.avif", label: "Spot welding" },
+  { img: "/images/facility/assembly-line.avif", label: "Chimney assembly line" },
+  { img: "/images/facility/sheet-metal-line.avif", label: "Sheet-metal fabrication" },
+  { img: "/images/facility/testing-station.avif", label: "Final assembly & testing" },
 ];
 
 // ------------------------------------------------------------------ page
@@ -140,7 +140,7 @@ export default function Home() {
 
       {/* ------------------------------------------------ CURATED */}
       <section className="relative isolate overflow-hidden">
-        <Image src="/images/company/factory-floor.jpg" alt="" fill sizes="100vw" className="parallax-img -z-10 object-cover" />
+        <Image src="/images/company/factory-floor.avif" alt="" fill sizes="100vw" className="parallax-img -z-10 object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
@@ -311,17 +311,17 @@ export default function Home() {
           <Reveal delay={150} variant="right" className="relative mx-auto h-[380px] w-full max-w-lg sm:h-[460px]">
             <div className="absolute top-0 left-0 w-[62%] -rotate-3 bg-white p-2 shadow-xl">
               <div className="relative aspect-square">
-                <Image src="/images/company/factory.jpg" alt="ASVA manufacturing plant" fill sizes="320px" className="object-cover" />
+                <Image src="/images/company/factory.avif" alt="ASVA manufacturing plant" fill sizes="320px" className="object-cover" />
               </div>
             </div>
             <div className="absolute top-10 right-0 w-[58%] rotate-2 bg-white p-2 shadow-xl">
               <div className="relative aspect-[4/3]">
-                <Image src="/images/company/factory-floor.jpg" alt="Shop floor" fill sizes="300px" className="object-cover" />
+                <Image src="/images/company/factory-floor.avif" alt="Shop floor" fill sizes="300px" className="object-cover" />
               </div>
             </div>
             <div className="absolute bottom-0 left-[14%] w-[70%] rotate-1 bg-white p-2 shadow-2xl">
               <div className="relative aspect-[16/9]">
-                <Image src="/images/company/shopfloor.jpg" alt="Production lines" fill sizes="360px" className="object-cover" />
+                <Image src="/images/company/shopfloor.avif" alt="Production lines" fill sizes="360px" className="object-cover" />
               </div>
             </div>
           </Reveal>

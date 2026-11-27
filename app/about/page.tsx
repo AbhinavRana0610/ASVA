@@ -32,7 +32,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={100}>
               <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-sm">
-                <Image src="/images/company/plant-exterior.jpg" alt="ASVA manufacturing unit" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
+                <Image src="/images/company/plant-exterior.avif" alt="ASVA manufacturing unit" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
               </div>
             </Reveal>
           </div>
@@ -180,10 +180,10 @@ export default function AboutPage() {
           <Reveal delay={150}>
             <div className="mt-12 grid gap-4 md:grid-cols-3">
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl md:col-span-2 md:aspect-auto">
-                <Image src="/images/company/factory-floor.jpg" alt="Manufacturing shop floor with production machinery" fill sizes="(min-width:768px) 66vw, 100vw" className="object-cover" />
+                <Image src="/images/company/factory-floor.avif" alt="Manufacturing shop floor with production machinery" fill sizes="(min-width:768px) 66vw, 100vw" className="object-cover" />
               </div>
               <div className="relative aspect-square overflow-hidden rounded-3xl">
-                <Image src="/images/company/factory.jpg" alt="ASVA factory building" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover" />
+                <Image src="/images/company/factory.avif" alt="ASVA factory building" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover" />
               </div>
             </div>
           </Reveal>
@@ -196,7 +196,7 @@ export default function AboutPage() {
           <Reveal>
             <div className="overflow-hidden rounded-sm bg-mint ring-1 ring-forest/10">
               <div className="relative aspect-[16/5] w-full bg-white">
-                <Image src="/images/company/fanair.jpg" alt="FanAir manufacturing unit" fill sizes="100vw" className="object-cover" />
+                <Image src="/images/company/fanair.avif" alt="FanAir manufacturing unit" fill sizes="100vw" className="object-cover" />
               </div>
               <div className="grid gap-8 p-8 sm:p-12 lg:grid-cols-3">
                 <div className="lg:col-span-1">
@@ -234,7 +234,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={100}>
               <div className="relative mx-auto aspect-[950/819] w-full max-w-lg overflow-hidden rounded-sm bg-white p-4">
-                <Image src="/images/clients/clients.jpg" alt={`Client brands: ${clients.join(", ")}`} fill sizes="(min-width:1024px) 40vw, 100vw" className="object-contain p-4" />
+                <Image src="/images/clients/clients.avif" alt={`Client brands: ${clients.join(", ")}`} fill sizes="(min-width:1024px) 40vw, 100vw" className="object-contain p-4" />
               </div>
             </Reveal>
           </div>

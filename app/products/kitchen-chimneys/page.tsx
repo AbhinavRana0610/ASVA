@@ -211,7 +211,7 @@ function HeroVisual() {
       <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white to-mint-200 shadow-2xl shadow-black/40" />
       <div className="absolute -bottom-3 left-1/2 h-10 w-2/3 -translate-x-1/2 rounded-full bg-black/40 blur-2xl" />
       <Image
-        src="/images/products/curve-4.jpg"
+        src="/images/products/curve-4.avif"
         alt="ASVA Curve 4 kitchen chimney"
         fill
         priority

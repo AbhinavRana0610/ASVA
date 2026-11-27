@@ -71,7 +71,7 @@ export default function Navbar() {
           }`}
         >
           <Link href="/" className="flex items-center gap-3" aria-label={`${company.name} home`}>
-            <Image src="/images/brand/logo-white.png" alt="ASVA" width={464} height={136} className="h-7 w-auto sm:h-8" priority />
+            <Image src="/images/brand/logo-white.avif" alt="ASVA" width={464} height={136} className="h-7 w-auto sm:h-8" priority />
           </Link>
 
           <ul className="hidden items-center gap-1 lg:flex">

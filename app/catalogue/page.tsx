@@ -38,8 +38,8 @@ export default function CataloguePage() {
       <section className="relative pt-12 pb-8">
         <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:px-6 md:grid-cols-2">
           {[
-            { title: "Product Catalogue", meta: "40 pages · PDF · 24 MB", href: "/catalogue/ASVA-Catalogue.pdf", img: "/images/products/curve-4.jpg" },
-            { title: "Price List & Specifications", meta: "28 models · PDF · 1 MB", href: "/catalogue/ASVA-Price-List.pdf", img: "/images/products/bldc-9.jpg" },
+            { title: "Product Catalogue", meta: "40 pages · PDF · 24 MB", href: "/catalogue/ASVA-Catalogue.pdf", img: "/images/products/curve-4.avif" },
+            { title: "Price List & Specifications", meta: "28 models · PDF · 1 MB", href: "/catalogue/ASVA-Price-List.pdf", img: "/images/products/bldc-9.avif" },
           ].map((d, i) => (
             <Reveal key={d.title} delay={i * 80} className="min-w-0">
               <a
