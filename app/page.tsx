@@ -5,6 +5,9 @@ import Counter from "@/components/Counter";
 import HeroSlider, { type HeroSlide } from "@/components/HeroSlider";
 import SeriesTabs, { type SeriesTab } from "@/components/SeriesTabs";
 import ProductRail from "@/components/ProductRail";
+import ZoomImage from "@/components/ZoomImage";
+import TiltCard from "@/components/TiltCard";
+import UpcomingStrip from "@/components/UpcomingStrip";
 import { Arrow, Button, Eyebrow, Heading, Icon } from "@/components/ui";
 import {
   chimneySeries,
@@ -25,10 +28,10 @@ import {
 // Everything below comes from the ASVA documents via lib/data.ts.
 
 const heroSlides: HeroSlide[] = [
-  { img: "/images/upcoming/curve-slim.jpg", title: "Curve", accent: "Slim", text: "Our new launched chimney: slimmest in India.", cta: "Explore chimneys", href: "/products/kitchen-chimneys" },
-  { img: "/images/upcoming/android-chimney.jpg", title: "Android", accent: "Chimney", text: "Built-in streaming display. Part of the upcoming collection.", cta: "See what's next", href: "/#upcoming" },
-  { img: "/images/upcoming/wifi-voice-chimney.jpg", title: "Wi-Fi & Voice", accent: "Control", text: "An in-built Wi-Fi and voice-control chimney, coming soon.", cta: "See what's next", href: "/#upcoming" },
-  { img: "/images/products/vacuum-hero.jpg", title: "Wet & Dry", accent: "Vacuum Cleaners", text: "Stainless steel tanks from 12 to 42 litres.", cta: "Explore vacuums", href: "/products/vacuum-cleaners" },
+  { img: "/images/banner/banner-1-curve-glass-chimney.png", title: "Curve", accent: "Slim", text: "Our new launched chimney: slimmest in India.", cta: "Explore chimneys", href: "/products/kitchen-chimneys" },
+  { img: "/images/banner/banner-2-android-display-chimney.png", title: "Android", accent: "Chimney", text: "Built-in streaming display. Part of the upcoming collection.", cta: "See what's next", href: "/#upcoming" },
+  { img: "/images/banner/banner-3-wifi-touch-chimney.png", title: "Wi-Fi & Voice", accent: "Control", text: "An in-built Wi-Fi and voice-control chimney, coming soon.", cta: "See what's next", href: "/#upcoming" },
+  { img: "/images/banner/banner-4-wet-dry-vacuums.png", title: "Wet & Dry", accent: "Vacuum Cleaners", text: "Stainless steel tanks from 12 to 42 litres.", cta: "Explore vacuums", href: "/products/vacuum-cleaners" },
 ];
 
 const tabAccent: Record<string, string> = {
@@ -78,6 +81,18 @@ const help = [
   { title: "Download", accent: "Catalogue", img: "", href: "/catalogue", dark: true },
 ];
 
+// Cropped from the factory photo collage (images/company/shopfloor.jpg).
+const facilityPhotos: { img: string; label: string; span?: string }[] = [
+  { img: "/images/company/factory.jpg", label: "Our plant, Barhi, Sonipat", span: "col-span-2 row-span-2" },
+  { img: "/images/facility/shop-floor-overview.jpg", label: "60,000 sq ft shop floor", span: "col-span-2" },
+  { img: "/images/facility/cnc-bending-press-1.jpg", label: "CNC bending presses" },
+  { img: "/images/facility/power-presses.jpg", label: "Power presses" },
+  { img: "/images/facility/spot-welding.jpg", label: "Spot welding" },
+  { img: "/images/facility/assembly-line.jpg", label: "Chimney assembly line" },
+  { img: "/images/facility/sheet-metal-line.jpg", label: "Sheet-metal fabrication" },
+  { img: "/images/facility/testing-station.jpg", label: "Final assembly & testing" },
+];
+
 // ------------------------------------------------------------------ page
 
 export default function Home() {
@@ -87,7 +102,7 @@ export default function Home() {
 
       {/* ------------------------------------------------ CATEGORIES */}
       <section className="bg-forest-950 pt-20 pb-20 text-white sm:pt-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto max-w-[72rem] px-4 sm:px-6">
           <Reveal>
             <h2 className="max-w-2xl font-display text-[2.4rem] leading-[1.1] text-white/75 sm:text-[3.4rem]">
               Step into a cleaner, <em className="text-white">healthier kitchen</em>
@@ -95,7 +110,7 @@ export default function Home() {
           </Reveal>
           <div className="mt-14 grid gap-3 md:grid-cols-3">
             {help.map((h, i) => (
-              <Reveal key={h.accent} delay={i * 80}>
+              <Reveal key={h.accent} delay={i * 120} variant="clip">
                 <Link
                   href={h.href}
                   className={`group relative flex aspect-[4/5] flex-col justify-end overflow-hidden ${h.dark ? "bg-forest" : "bg-mint"}`}
@@ -125,7 +140,7 @@ export default function Home() {
 
       {/* ------------------------------------------------ CURATED */}
       <section className="relative isolate overflow-hidden">
-        <Image src="/images/company/factory-floor.jpg" alt="" fill sizes="100vw" className="-z-10 object-cover" />
+        <Image src="/images/company/factory-floor.jpg" alt="" fill sizes="100vw" className="parallax-img -z-10 object-cover" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/75 via-black/45 to-black/20" />
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
@@ -140,7 +155,7 @@ export default function Home() {
           </Reveal>
           <div className="grid gap-3 sm:grid-cols-3 lg:col-span-7">
             {curated.map((c, i) => (
-              <Reveal key={c.accent} delay={i * 100} className={i === 1 ? "sm:translate-y-16" : ""}>
+              <Reveal key={c.accent} delay={i * 120} variant="zoom" className={i === 1 ? "sm:translate-y-16" : ""}>
                 <div className="h-full bg-mint p-4 pb-6">
                   <div className="relative aspect-[4/3] bg-white">
                     <Image src={c.img} alt="" fill sizes="(min-width:1024px) 18vw, (min-width:640px) 30vw, 90vw" className="object-contain p-3" />
@@ -170,8 +185,9 @@ export default function Home() {
           >
             {featured.map((p) => (
               <article key={p.slug} className="flex w-[82%] shrink-0 snap-start flex-col border border-forest-950/10 bg-white p-4 sm:w-[46%] lg:w-[calc(25%-12px)]">
-                <Link href={`/products/${p.slug}`} className="group relative block aspect-square bg-mint">
-                  <Image src={p.img} alt={p.name} fill sizes="(min-width:1024px) 22vw, (min-width:640px) 45vw, 80vw" className="object-contain p-6 mix-blend-multiply transition-transform duration-700 group-hover:scale-105" />
+                <Link href={`/products/${p.slug}`} className="relative block aspect-square bg-mint">
+                  {/* Larger source than the tile so the zoomed view stays sharp */}
+                  <ZoomImage src={p.img} alt={p.name} sizes="(min-width:1024px) 50vw, 100vw" className="object-contain p-6 mix-blend-multiply" />
                   {p.badge && <span className="absolute top-3 left-3 bg-forest px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">{p.badge}</span>}
                 </Link>
                 <h3 className="mt-5 text-xl leading-snug text-forest-950">{p.name.replace(/^ASVA /, "")}</h3>
@@ -207,7 +223,7 @@ export default function Home() {
 
       {/* ------------------------------------------------ NEW LAUNCHES */}
       <section className="bg-mint py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto max-w-[72rem] px-4 sm:px-6">
           <Reveal>
             <h2 className="text-center font-display text-[2.2rem] leading-tight text-forest-950 sm:text-[3rem]">
               Our newly launched <em className="text-forest">chimneys</em>
@@ -215,10 +231,10 @@ export default function Home() {
           </Reveal>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {newLaunches.map((n, i) => (
-              <Reveal key={n.name} delay={i * 80} className={i % 2 === 1 ? "lg:translate-y-10" : ""}>
+              <Reveal key={n.name} delay={i * 100} variant="zoom" className={i % 2 === 1 ? "lg:translate-y-10" : ""}>
                 <div className="group h-full bg-white">
                   <div className="relative aspect-[4/5] overflow-hidden bg-white">
-                    <Image src={n.img} alt={n.name} fill sizes="(min-width:1024px) 25vw, 50vw" className="object-contain p-4 transition-transform duration-700 group-hover:scale-105" />
+                    <ZoomImage src={n.img} alt={n.name} sizes="(min-width:1024px) 50vw, 100vw" className="object-contain p-4" />
                     <span className="absolute top-3 left-3 bg-forest px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white">New</span>
                   </div>
                   <div className="p-6">
@@ -234,45 +250,44 @@ export default function Home() {
 
       {/* ------------------------------------------------ FACILITY */}
       <section className="py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto max-w-[72rem] px-4 sm:px-6">
           <Reveal>
             <Eyebrow>Manufacturing facility</Eyebrow>
           </Reveal>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {facility.stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 60}>
-                <div className="flex h-full items-center gap-5 bg-mint p-5">
-                  <p className="min-w-[4.5rem] text-4xl text-forest">
-                    <Counter to={s.value} format={s.format} />
-                  </p>
-                  <p className="text-[0.95rem] leading-snug text-forest-950/75">{s.label}</p>
-                </div>
+          <div className="mt-6 flex flex-wrap gap-x-10 gap-y-4">
+            {facility.stats.map((s) => (
+              <div key={s.label} className="flex items-baseline gap-2">
+                <p className="text-3xl text-forest">
+                  <Counter to={s.value} format={s.format} />
+                </p>
+                <p className="text-sm text-forest-950/65">{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 grid auto-rows-[135px] grid-cols-2 gap-3 sm:auto-rows-[180px] lg:grid-cols-4">
+            {facilityPhotos.map((p, i) => (
+              <Reveal key={p.img} delay={i * 90} variant="clip" className={p.span ?? ""}>
+                <figure className="shine group relative h-full overflow-hidden bg-mint">
+                  <Image src={p.img} alt={p.label} fill sizes={p.span ? "(min-width:1024px) 50vw, 100vw" : "(min-width:1024px) 25vw, 50vw"} className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <figcaption className="absolute z-[2] inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent px-4 pt-10 pb-3 text-sm text-white">
+                    {p.label}
+                  </figcaption>
+                </figure>
               </Reveal>
             ))}
           </div>
 
-          <Reveal className="mt-16">
-            <Eyebrow>In-house capabilities</Eyebrow>
-          </Reveal>
-          <div className="mt-6 grid gap-3 md:grid-cols-2">
-            {facility.capabilities.map((c, i) => (
-              <Reveal key={c} delay={i * 50}>
-                <div className="flex items-center gap-5 bg-mint">
-                  <span className="flex h-16 w-16 shrink-0 items-center justify-center bg-mint-200 text-forest">
-                    <Icon name="factory" className="h-6 w-6" />
-                  </span>
-                  <p className="pr-4 text-lg text-forest-950">{c}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <p className="mt-6 text-sm text-forest-950/60">
+            Also in-house: powder coating line · drum manufacturing · NPT / BIS / QC lab · sound testing room
+          </p>
         </div>
       </section>
 
       {/* ------------------------------------------------ LEGACY + CLIENTS */}
       <section className="overflow-hidden bg-mint py-20 sm:py-28">
         <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2">
-          <Reveal>
+          <Reveal variant="left">
             <h2 className="font-display text-[2.4rem] leading-[1.1] text-forest-950 sm:text-[3.2rem]">
               Built on a legacy of
               <br />
@@ -293,7 +308,7 @@ export default function Home() {
               <Button href="/about">About ASVA</Button>
             </div>
           </Reveal>
-          <Reveal delay={150} className="relative mx-auto h-[380px] w-full max-w-lg sm:h-[460px]">
+          <Reveal delay={150} variant="right" className="relative mx-auto h-[380px] w-full max-w-lg sm:h-[460px]">
             <div className="absolute top-0 left-0 w-[62%] -rotate-3 bg-white p-2 shadow-xl">
               <div className="relative aspect-square">
                 <Image src="/images/company/factory.jpg" alt="ASVA manufacturing plant" fill sizes="320px" className="object-cover" />
@@ -355,37 +370,32 @@ export default function Home() {
 
       {/* ------------------------------------------------ UPCOMING */}
       <section id="upcoming" className="scroll-mt-24 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mx-auto max-w-[72rem] px-4 sm:px-6">
           <Reveal>
             <Heading title={<>The upcoming <em>collection</em></>} text="Smart, connected chimneys and a new family of kitchen and cleaning appliances." />
           </Reveal>
           <div className="mt-12 grid gap-3 lg:grid-cols-3">
             {upcomingCollection.map((u, i) => (
-              <Reveal key={u.name} delay={i * 80}>
-                <div className="group relative aspect-[4/5] overflow-hidden bg-mint">
-                  <Image src={u.img} alt={u.name} fill sizes="(min-width:1024px) 33vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Reveal key={u.name} delay={i * 200} variant="unveil">
+                <TiltCard className="group aspect-[4/5] overflow-hidden bg-mint">
+                  <Image src={u.img} alt={u.name} fill sizes="(min-width:1024px) 33vw, 100vw" className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-                  <span className="absolute top-4 left-4 bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-forest">Coming soon</span>
-                  <div className="absolute inset-x-6 bottom-6 text-white">
+                  <span className="absolute top-4 left-4 flex items-center gap-2 bg-white px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-forest">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-forest opacity-75 motion-reduce:animate-none" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-forest" />
+                    </span>
+                    Coming soon
+                  </span>
+                  <div className="unveil-text absolute inset-x-6 bottom-6 text-white">
                     <h3 className="text-2xl leading-tight">{u.name}</h3>
                     <p className="accent mt-1 text-lg text-white/80">{u.text}</p>
                   </div>
-                </div>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
-          <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {upcomingProducts.map((u, i) => (
-              <Reveal key={u.name} delay={i * 60}>
-                <div className="flex items-center gap-4 bg-mint">
-                  <div className="relative h-20 w-20 shrink-0 overflow-hidden bg-white">
-                    <Image src={u.img} alt={u.name} fill sizes="80px" className="object-cover" />
-                  </div>
-                  <p className="pr-4 leading-snug text-forest-950">{u.name}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <UpcomingStrip items={upcomingProducts} />
         </div>
       </section>
     </>

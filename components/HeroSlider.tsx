@@ -2,8 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Arrow } from "./ui";
+
+const smoke = [
+  { left: "10%", t: "16s", delay: "0s", x: "60px", o: 0.16 },
+  { left: "38%", t: "13s", delay: "-5s", x: "-40px", o: 0.2 },
+  { left: "62%", t: "18s", delay: "-9s", x: "50px", o: 0.14 },
+  { left: "25%", t: "15s", delay: "-12s", x: "-30px", o: 0.12 },
+];
 
 export type HeroSlide = {
   img: string;
@@ -38,7 +45,7 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
         <div
           key={s.img}
           aria-hidden={i !== index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${i === index ? "opacity-100" : "pointer-events-none opacity-0"}`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${i === index ? "is-active opacity-100" : "pointer-events-none opacity-0"}`}
         >
           <Image
             src={s.img}
@@ -52,12 +59,13 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
           <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-28 sm:px-6 sm:pb-32">
-            <h1
-              className={`font-display text-[2.8rem] leading-[1.05] tracking-tight transition-all duration-700 sm:text-7xl ${
-                i === index ? "translate-y-0 opacity-100 delay-300" : "translate-y-6 opacity-0"
-              }`}
-            >
-              {s.title} <em>{s.accent}</em>
+            <h1 className="font-display text-[2.8rem] leading-[1.05] tracking-tight sm:text-7xl" aria-label={`${s.title} ${s.accent}`}>
+              {[...s.title.split(" ").map((w) => ({ w, em: false })), ...s.accent.split(" ").map((w) => ({ w, em: true }))].map((part, wi) => (
+                <span key={wi} aria-hidden className="word-mask">
+                  <span style={{ "--d": `${250 + wi * 110}ms` } as CSSProperties}>{part.em ? <em>{part.w}</em> : part.w}</span>
+                  {" "}
+                </span>
+              ))}
             </h1>
             <p
               className={`mt-4 max-w-xl text-lg text-white/85 transition-all duration-700 sm:text-xl ${
@@ -79,6 +87,13 @@ export default function HeroSlider({ slides }: { slides: HeroSlide[] }) {
           </div>
         </div>
       ))}
+
+      {/* Rising smoke over the chimney side of the images */}
+      <div aria-hidden className="pointer-events-none absolute inset-y-0 right-0 w-full overflow-hidden sm:w-3/5">
+        {smoke.map((p, i) => (
+          <span key={i} className="smoke" style={{ left: p.left, "--t": p.t, "--delay": p.delay, "--x": p.x, "--o": p.o } as CSSProperties} />
+        ))}
+      </div>
 
       {/* Progress bars */}
       <div className="absolute inset-x-0 bottom-8 mx-auto flex max-w-7xl gap-3 px-4 sm:gap-4 sm:px-6">

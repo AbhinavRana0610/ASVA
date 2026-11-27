@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import ZoomImage from "./ZoomImage";
 import { useEffect, useState } from "react";
 import { Button } from "./ui";
 
@@ -31,7 +31,7 @@ export default function SeriesTabs({ tabs }: { tabs: SeriesTab[] }) {
 
   return (
     <section className="bg-forest-950 py-20 text-white sm:py-24" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto max-w-[72rem] px-4 sm:px-6">
         <div role="tablist" aria-label="Chimney series" className="no-scrollbar -mx-4 flex gap-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
           {tabs.map((tab, i) => (
             <button
@@ -60,7 +60,7 @@ export default function SeriesTabs({ tabs }: { tabs: SeriesTab[] }) {
 
         <div key={t.id} role="tabpanel" className="mt-12 grid animate-[fadeUp_0.6s_ease-out] items-center gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="relative aspect-[4/3] bg-white lg:col-span-7">
-            <Image src={t.img} alt={t.name} fill sizes="(min-width:1024px) 55vw, 100vw" className="object-contain p-8 sm:p-12" />
+            <ZoomImage src={t.img} alt={t.name} sizes="100vw" className="object-contain p-8 sm:p-12" />
           </div>
           <div className="lg:col-span-5">
             <h2 className="font-display text-4xl leading-tight sm:text-5xl">

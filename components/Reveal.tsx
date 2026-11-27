@@ -7,11 +7,13 @@ export default function Reveal({
   delay = 0,
   as: Tag = "div",
   className = "",
+  variant,
 }: {
   children: ReactNode;
   delay?: number;
   as?: ElementType;
   className?: string;
+  variant?: "clip" | "zoom" | "left" | "right" | "unveil";
 }) {
   const ref = useRef<HTMLElement>(null);
 
@@ -32,7 +34,7 @@ export default function Reveal({
   }, []);
 
   return (
-    <Tag ref={ref} className={`reveal ${className}`} style={{ "--d": `${delay}ms` } as CSSProperties}>
+    <Tag ref={ref} className={`reveal ${className}`} data-v={variant} style={{ "--d": `${delay}ms` } as CSSProperties}>
       {children}
     </Tag>
   );

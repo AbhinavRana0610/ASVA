@@ -32,6 +32,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${atkinson.variable} ${dmSerif.variable}`}>
       <body className="min-h-screen" suppressHydrationWarning>
+        <div className="scroll-progress" aria-hidden />
         <Navbar />
         <main>{children}</main>
         <Footer />
