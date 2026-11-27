@@ -78,7 +78,7 @@ const experience = [
 const help = [
   { title: "Kitchen", accent: "Chimneys", img: "/images/products/curve-7.avif", href: "/products/kitchen-chimneys", dark: false },
   { title: "Vacuum", accent: "Cleaners", img: "/images/products/vacuum-hero.avif", href: "/products/vacuum-cleaners", dark: false },
-  { title: "Download", accent: "Catalogue", img: "", href: "/catalogue", dark: true },
+  { title: "Download", accent: "Catalogue", img: "/images/products/stick-vacuum-collage-hd.avif", href: "/catalogue", dark: true },
 ];
 
 // Cropped from the factory photo collage (images/company/shopfloor.avif).
@@ -118,12 +118,7 @@ export default function Home() {
                   {h.img && (
                     <Image src={h.img} alt="" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   )}
-                  {h.dark && (
-                    <div className="absolute inset-0 flex items-center justify-center p-12">
-                      <Icon name="download" className="h-24 w-24 text-white/15" />
-                    </div>
-                  )}
-                  <div className={`relative flex items-end justify-between p-6 sm:p-8 ${h.dark ? "" : "bg-gradient-to-t from-mint via-mint/90 to-transparent pt-24"}`}>
+                  <div className={`relative flex items-end justify-between p-6 sm:p-8 ${h.dark ? "bg-gradient-to-t from-black/85 via-black/55 to-transparent pt-24" : "bg-gradient-to-t from-mint via-mint/90 to-transparent pt-24"}`}>
                     <p className={`font-display text-3xl leading-tight sm:text-4xl ${h.dark ? "text-white" : "text-forest-950"}`}>
                       {h.title}
                       <br />
