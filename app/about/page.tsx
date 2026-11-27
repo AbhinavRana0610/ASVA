@@ -25,23 +25,54 @@ export default function AboutPage() {
 
       {/* Story */}
       <section className="py-24 sm:py-32">
-        <div className="mx-auto grid max-w-7xl gap-16 px-4 sm:px-6 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <Reveal>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          {/* Heading left, lead statement right */}
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <Reveal className="lg:col-span-6">
               <Heading eyebrow="Who we are" title="A manufacturer of premium kitchen appliances." />
             </Reveal>
-            <Reveal delay={100}>
-              <div className="relative mt-10 aspect-[4/3] overflow-hidden rounded-sm">
-                <Image src="/images/company/plant-exterior.avif" alt="ASVA manufacturing unit" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
-              </div>
+            <Reveal delay={120} className="lg:col-span-6">
+              <p className="border-l-2 border-forest pl-6 text-lg leading-relaxed text-forest-950/80 sm:text-xl">{aboutLong[0]}</p>
             </Reveal>
           </div>
-          <div className="space-y-6 text-lg leading-relaxed text-forest-950/70 lg:col-span-7 lg:pt-16">
-            {aboutLong.map((t, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <p className={i === 0 ? "font-display text-2xl leading-snug text-forest-950 sm:text-3xl" : ""}>{t}</p>
-              </Reveal>
-            ))}
+
+          <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:gap-16">
+            {/* Plant photo with a floating stat badge */}
+            <Reveal variant="clip" className="lg:col-span-7">
+              <div className="relative">
+                <div className="relative aspect-[5/4] overflow-hidden bg-mint">
+                  <Image src="/images/company/factory.avif" alt="ASVA manufacturing plant, Barhi, Sonipat" fill sizes="(min-width:1024px) 55vw, 100vw" className="object-cover object-[50%_40%]" />
+                </div>
+                <div className="absolute right-0 bottom-0 bg-forest px-6 py-5 text-white sm:px-8 sm:py-6">
+                  <p className="font-display text-4xl leading-none sm:text-5xl">
+                    <Counter to={60000} format />
+                  </p>
+                  <p className="mt-2 text-xs uppercase tracking-[0.2em] text-white/70">sq ft plant · Barhi, Sonipat</p>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* What we stand for */}
+            <ol className="flex flex-col justify-center divide-y divide-forest-950/10 border-y border-forest-950/10 lg:col-span-5">
+              {[
+                { icon: "wind", title: "Engineered for performance", text: aboutLong[1] },
+                { icon: "factory", title: "A chimney for every kitchen", text: aboutLong[2] },
+                { icon: "shield", title: "Cleaner, healthier homes", text: aboutLong[3] },
+              ].map((s, i) => (
+                <Reveal as="li" key={s.title} delay={150 + i * 120} variant="right" className="group flex gap-5 py-7">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center bg-mint text-forest transition-colors duration-300 group-hover:bg-forest group-hover:text-white">
+                    <Icon name={s.icon} />
+                  </span>
+                  <div>
+                    <h3 className="flex items-baseline gap-3 text-xl text-forest-950">
+                      <span className="text-xs font-bold tracking-wider text-forest">0{i + 1}</span>
+                      {s.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-forest-950/65">{s.text}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ol>
           </div>
         </div>
       </section>
@@ -183,7 +214,7 @@ export default function AboutPage() {
                 <Image src="/images/company/factory-floor.avif" alt="Manufacturing shop floor with production machinery" fill sizes="(min-width:768px) 66vw, 100vw" className="object-cover" />
               </div>
               <div className="relative aspect-square overflow-hidden rounded-3xl">
-                <Image src="/images/company/factory.avif" alt="ASVA factory building" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover" />
+                <Image src="/images/facility/assembly-line.avif" alt="Chimney assembly line" fill sizes="(min-width:768px) 33vw, 100vw" className="object-cover" />
               </div>
             </div>
           </Reveal>
